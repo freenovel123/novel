@@ -1,6 +1,6 @@
 {
-  "version": "1.2.4",
-  "url": "https://raw.fastgit.org/freenovel123/novel/master/app_pro_1.2.4_release.apk",
-  "log": "修复若干BUG",
+  "version": "1.2.5",
+  "url": "https://raw.fastgit.org/freenovel123/novel/master/app_pro_1.2.5_release.apk",
+  "log": "1、新增小说源，删除无效的小说源<br/>2、修复若干BUG",
   "constraint": false
 }
