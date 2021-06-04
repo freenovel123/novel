@@ -72,7 +72,7 @@
 	<div class="pages">
 		<div class="logo"></div>
 		<div class="title">追书先生</div>
-		<div id="download" class="button default download">去下载</div>
+		<div class="button default download" onclick="download()">去下载</div>
 
 		<div class="tip" id="tip">
 			<span class="tip-icon"></span>
@@ -81,6 +81,10 @@
 	</div>
 	<script type="text/javascript">
     window.onload = function(){
+        download();
+    }
+
+    function download() {
         if(isWeiXin()){
             var tip = document.getElementById('tip')
             tip.style.display = 'block'
@@ -88,17 +92,16 @@
             var UA = navigator.userAgent,devicesType = "android";
             (UA.indexOf("iPhone") > -1 || UA.indexOf("iPad") > -1) && (devicesType = "iPhone");
             if(devicesType === "android"){
-            	var url = "../version.json"
-            	var request = new XMLHttpRequest();
-            	var request = new XMLHttpRequest();
-            	request.open("get", url);
-            	request.send(null);
-            	request.onload = function () {
-                	if (request.status == 200) {
-                    	var json = JSON.parse(request.responseText);
+                var url = "../version.json"
+                var request = new XMLHttpRequest();
+                request.open("get", url);
+                request.send(null);
+                request.onload = function () {
+                    if (request.status == 200) {
+                        var json = JSON.parse(request.responseText);
                         location.href = json.url;
-                	}
-            	}
+                    }
+                }
             }
             if(devicesType === "iPhone") {
                 alert("跳转appstore")
@@ -106,6 +109,7 @@
             }
         }
     }
+
     function isWeiXin(){
         var ua = window.navigator.userAgent.toLowerCase();
         if(ua.match(/MicroMessenger/i) == 'micromessenger'){
