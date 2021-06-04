@@ -1,50 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>微信弹出遮罩</title>
+	<meta charset="utf-8" />
+	<title>追书先生</title>
+	<meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" itemprop="description" content="追书神器,追书先生,追书">
+    <style type="text/css">
+    	body,html{font-family:'PingFang SC',Helvetica,'STHeiti STXihei','Microsoft YaHei',Tohoma,Arial,sans-serif;-webkit-font-smoothing:antialiased;background:#FFFFFF;color:#333333;line-height:1}body,figure,p,h1,h2,h3,h4,ul,li,pre{margin:0}*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}ul,li{list-style:none}a{text-decoration:none}.button{display:inline-block;vertical-align:top;padding:8px 20px;box-sizing:border-box;font-weight:500;font-size: 14px;text-align:center;text-decoration:none;line-height:1.41176471;border-radius: 15px;border:0;overflow:hidden}.button:after{border:0}.button.active{opacity:.9}.button.default{background-color:#495afc;color:#FFFFFF}
+
+    	.pages {
+    		text-align: center;
+    	}
+
+    	.logo {
+    		width: 100px;
+    		height: 100px;
+    		background: url("./images/logo.png") no-repeat;
+    		background-size: 100%;
+    		border-radius: 20px;
+    		margin: 200px auto 0;
+    		border: 2px solid #EEE;
+    	}
+
+    	.title {
+    		font-size: 16px;
+    		font-weight: 700;
+    		color: #333333;
+    		text-align: center;	
+    		padding: 15px 0;
+    	}
+
+    	.download {
+    		width: 150px;
+    		margin-top: 20px;
+    	}
+
+    	.tip {
+    		background: rgba(0,0,0,0.6);
+    		text-align: center;
+    		position: fixed;
+    		left:0;
+    		top: 0;
+    		width: 100%;
+    		height: 100%;
+    		z-index: 998;
+    		display: none;
+    	}
+        .tip-icon {
+        	width: 52px; 
+        	height: 100%; 
+        	background: url("./images/arrow.png") no-repeat;
+        	background-size: 100%;
+        	display: block; 
+        	position: absolute; 
+        	right: 20px; 
+        	top: 20px;
+        }
+        .tip-txt {
+        	margin-top: 107px; 
+        	color: #fff; 
+        	font-size: 16px; 
+        	line-height: 1.5;
+        }
+
+    </style>
 </head>
 <body>
-	<style type="text/css">
-	*{margin:0; padding:0;}
-	img{max-width: 100%; height: auto;}
-	.test{height: 600px; max-width: 600px; font-size: 40px;}
-	</style>
-	<div class="test"><a href="http://mp.weixin.qq.com/mp/redirect?url=http://mobile.xinlianwang.com/android/distributor/DistributorApp.apk#weixin.qq.com#wechat_redirect ">有效跳转</a></div>
-	<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.9.0/jquery.min.js"></script>
+	<div class="pages">
+		<div class="logo"></div>
+		<div class="title">追书先生</div>
+		<div id="download" class="button default download">去下载</div>
+
+		<div class="tip" id="tip">
+			<span class="tip-icon"></span>
+			<p class="tip-txt">点击右上角<br/>选择在浏览器中打开进行下载安装</p>
+		</div>
+	</div>
 	<script type="text/javascript">
-		function is_weixin() {
-		    var ua = navigator.userAgent.toLowerCase();
-		    if (ua.match(/MicroMessenger/i) == "micromessenger") {
-		        return true;
-		    } else {
-		        return false;
-		    }
-		}
-		var isWeixin = is_weixin();
-		var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
-		var weixinTip = $('<div id="weixinTip"><p><img src="live_weixin.png" alt="微信打开"/></p></div>');
-		
-		if(isWeixin){
-			$("body").append(weixinTip);
-		}
-		$("#weixinTip").css({
-			"position":"fixed",
-			"left":"0",
-			"top":"0",
-			"height":winHeight,
-			"width":"100%",
-			"z-index":"1000",
-			"background-color":"rgba(0,0,0,0.8)",
-			"filter":"alpha(opacity=80)",
-		});
-		$("#weixinTip p").css({
-			"text-align":"center",
-			"margin-top":"10%",
-			"padding-left":"5%",
-			"padding-right":"5%"
-		});
-	</script>
+    window.onload = function(){
+        if(isWeiXin()){
+            var tip = document.getElementById('tip')
+            tip.style.display = 'block'
+        } else {
+            var UA = navigator.userAgent,devicesType = "android";
+            (UA.indexOf("iPhone") > -1 || UA.indexOf("iPad") > -1) && (devicesType = "iPhone");
+            if(devicesType === "android"){
+            	var url = "../version.json"
+            	var request = new XMLHttpRequest();
+            	var request = new XMLHttpRequest();
+            	request.open("get", url);
+            	request.send(null);
+            	request.onload = function () {
+                	if (request.status == 200) {
+                    	var json = JSON.parse(request.responseText);
+                        location.href = json.url;
+                	}
+            	}
+            }
+            if(devicesType === "iPhone") {
+                alert("跳转appstore")
+                // location.href = "";
+            }
+        }
+    }
+    function isWeiXin(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 </body>
 </html>
