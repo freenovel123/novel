@@ -1,6 +1,6 @@
 {
-  "version": "1.2.6",
-  "url": "https://freenovel123.github.io/novel/app_pro_1.2.6_release.apk",
-  "log": "1、修复若干BUG\r\n2、首页无书本时页面优化",
+  "version": "1.2.7",
+  "url": "https://freenovel123.github.io/novel/app_pro_1.2.7_release.apk",
+  "log": "1、优化语音阅读，打开设置即暂停，关闭即播放\r\n2、修复无网络情况下APP闪退",
   "constraint": false
 }
