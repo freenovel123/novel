@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
-  "url": "https://freenovel123.github.io/novel/zuishu_1.3.0_release.apk",
-  "log": "1、优化语音阅读，打开设置即暂停，关闭即播放\r\n2、修复语音阅读时可能会少读某一段\r\n3、排行榜展现更多排行数据\r\n3、修复无网络情况下APP闪退",
+  "version": "1.3.1",
+  "url": "https://freenovel123.github.io/novel/zuishu_1.3.1_release.apk",
+  "log": "1、新增小说可换源\r\n2、优化部分功能，修复已知BUG",
   "constraint": false
 }
