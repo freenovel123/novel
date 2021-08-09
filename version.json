@@ -1,5 +1,5 @@
 {
-  "version": "1.3.5",
+  "version": "1.3.4",
   "url": "https://freenovel123.github.io/novel/zuishu_1.3.5_release.apk",
   "log": "1、取消所有本地书源，改为线上自定义书源\r\n2、部分UI流程调整\r\n3、修复已知BUG",
   "constraint": false
