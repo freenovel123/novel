@@ -1,6 +1,6 @@
 [
 	{
-		"version": 1,
+		"version": 2,
 	    "siteName": "春燕小说网",
 	    "baseUrl": "https://www.riei.info/",
 	    "enable": true,
@@ -11,7 +11,7 @@
 	    "searchMethod": "GET",
 	    "searchParam": "?s={keyword}",
 	    "searchEncode": "utf-8",
-	    "searchBookList": "//*[@class='search-list']/ul",
+	    "searchBookList": "//div[@class='search-list']/ul/li",
 	    "searchBookName": ".//a[@class='tit']",
 	    "searchBookUrl": "concat(.//a[@class='tit']/@href, 'chapter/')",
 	    "searchAuthor": ".//p[@class='info']/span/text()",
