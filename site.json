@@ -1,6 +1,47 @@
 [
 	{
 		"version": 1,
+	    "siteName": "春燕小说网",
+	    "baseUrl": "https://www.riei.info/",
+	    "enable": true,
+	    "siteClassify": "优质",
+	    "ruleUpdateTime": "1629082441000",
+	    "author": "steve",
+	    "searchUrl": "https://www.riei.info/s.php",
+	    "searchMethod": "GET",
+	    "searchParam": "?s={keyword}",
+	    "searchEncode": "utf-8",
+	    "searchBookList": "//*[@class='search-list']/ul",
+	    "searchBookName": ".//a[@class='tit']",
+	    "searchBookUrl": "concat(.//a[@class='tit']/@href, 'chapter/')",
+	    "searchAuthor": ".//p[@class='info']/span/text()",
+	    "searchExtraRule": {
+		    "imageUrl": ".//img/@data-original",
+		    "bookSize": "",
+		    "lastUpdateTime": "",
+		    "lastChapterName": "",
+		    "introduce": ".//p[@class='intro']",
+		    "classify": ".//p[@class='info']/em",
+		    "status": ""
+		},
+	    "catalogChapterList": "//*[@id=\"listsss\"]/li",
+	    "catalogChapterName": ".//a/text()",
+	    "catalogChapterUrl": ".//a/@href",
+	    "catalogExtraRule": {
+	        "imageUrl": "",
+	        "bookSize": "",
+	        "lastUpdateTime": "",
+	        "lastChapterName": "",
+	        "introduce": "",
+	        "classify": "",
+	        "status": ""
+	    },
+	    "chapterLines": "//div[@class='content']/p/text()",
+	    "chapterEncodeType": "utf-8",
+	    "cleaner": ""
+	},
+	{
+		"version": 1,
 	    "siteName": "新笔趣阁Biz",
 	    "baseUrl": "https://www.biquge.biz/",
 	    "enable": true,
