@@ -148,7 +148,7 @@
 		    "status": ""
 		},
 	    "catalogChapterList": "//*[@class='chapters']/div[@class='chapter']",
-	    "catalogChapterName": "//a/text()",
+	    "catalogChapterName": ".//a/text()",
 	    "catalogChapterUrl": ".//a/@href",
 	    "catalogExtraRule": {
 	        "imageUrl": "",
