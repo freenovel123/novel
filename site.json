@@ -1,6 +1,6 @@
 [
 	{
-		"version": 2,
+		"version": 3,
 	    "siteName": "春燕小说网",
 	    "baseUrl": "https://www.riei.info/",
 	    "enable": true,
@@ -26,7 +26,7 @@
 		},
 	    "catalogChapterList": "//*[@id=\"listsss\"]/li",
 	    "catalogChapterName": ".//a/text()",
-	    "catalogChapterUrl": ".//a/@href",
+	    "catalogChapterUrl": "concat(//div[@class='header']/a/@href, 'chapter/', .//a/@href)",
 	    "catalogExtraRule": {
 	        "imageUrl": "",
 	        "bookSize": "",
