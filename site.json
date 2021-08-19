@@ -24,7 +24,7 @@
 		    "classify": ".//p[@class='info']/em",
 		    "status": ""
 		},
-	    "catalogChapterList": "//*[@id=\"listsss\"]/li",
+	    "catalogChapterList": "//*[@id='listsss']/li",
 	    "catalogChapterName": ".//a/text()",
 	    "catalogChapterUrl": "concat(//div[@class='header']/a/@href, 'chapter/', .//a/@href)",
 	    "catalogExtraRule": {
@@ -65,19 +65,19 @@
 		    "classify": ".//*[@class='result-game-item-info']/p[2]/span[2]/text()",
 		    "status": ""
 		},
-	    "catalogChapterList": "//*[@id=\"list\"]/dl/dd",
+	    "catalogChapterList": "//*[@id='list']/dl/dd",
 	    "catalogChapterName": ".//a/text()",
 	    "catalogChapterUrl": ".//a/@href",
 	    "catalogExtraRule": {
-	        "imageUrl": "//*[@id=\"fmimg\"]/img/@src",
+	        "imageUrl": "//*[@id='fmimg']/img/@src",
 	        "bookSize": "",
-	        "lastUpdateTime": "//*[@id=\"info\"]/p[3]/text()",
-	        "lastChapterName": "//*[@id=\"info\"]/p[4]/a/text()",
-	        "introduce": "//*[@id=\"intro\"]/text()",
+	        "lastUpdateTime": "//*[@id='info']/p[3]/text()",
+	        "lastChapterName": "//*[@id='info']/p[4]/a/text()",
+	        "introduce": "//*[@id='intro']/text()",
 	        "classify": "",
 	        "status": ""
 	    },
-	    "chapterLines": "//*[@id=\"content\"]/text()",
+	    "chapterLines": "//*[@id='content']/text()",
 	    "chapterEncodeType": "gbk",
 	    "cleaner": ""
 	},
@@ -106,19 +106,19 @@
 		    "classify": ".//*[@class='cat']/text()",
 		    "status": ""
 		},
-	    "catalogChapterList": "//*[@class=\"listmain\"]/dl/dd",
+	    "catalogChapterList": "//*[@class='listmain']/dl/dd",
 	    "catalogChapterName": ".//a/text()",
 	    "catalogChapterUrl": ".//a/@href",
 	    "catalogExtraRule": {
-	        "imageUrl": "//*[@id=\"fmimg\"]/img/@src",
+	        "imageUrl": "//*[@id='fmimg']/img/@src",
 	        "bookSize": "",
-	        "lastUpdateTime": ".//*[@id=\"info\"]/p[6]/text()",
-	        "lastChapterName": ".//*[@id=\"info\"]/p[5]/a/text()",
+	        "lastUpdateTime": ".//*[@id='info']/p[6]/text()",
+	        "lastChapterName": ".//*[@id='info']/p[5]/a/text()",
 	        "introduce": "",
 	        "classify": "",
 	        "status": ""
 	    },
-	    "chapterLines": "//*[@id=\"content\"]/text()",
+	    "chapterLines": "//*[@id='content']/text()",
 	    "chapterEncodeType": "gbk",
 	    "cleaner": ""
 	},
@@ -175,7 +175,7 @@
 	    "searchMethod": "POST",
 	    "searchParam": "?keyword={keyword}",
 	    "searchEncode": "utf-8",
-	    "searchBookList": "//*[@id=\"search-main\"]/div[1]/ul/li",
+	    "searchBookList": "//*[@id='search-main']/div[1]/ul/li",
 	    "searchBookName": ".//span[2]/a",
 	    "searchBookUrl": ".//span[2]/a/@href",
 	    "searchAuthor": ".//span[4]/text()",
@@ -188,19 +188,19 @@
 	        "classify": ".//span[1]/text()",
 	        "status": ".//span[6]/text()"
 	    },
-	    "catalogChapterList": "//*[@id=\"list\"]/dl/dd",
+	    "catalogChapterList": "//*[@id='list']/dl/dd",
 	    "catalogChapterName": ".//a/text()",
 	    "catalogChapterUrl": ".//a/@href",
 	    "catalogExtraRule": {
-	        "imageUrl": "//*[@id=\"fmimg\"]/img/@src",
+	        "imageUrl": "//*[@id='fmimg']/img/@src",
 	        "bookSize": "",
-	        "lastUpdateTime": "//*[@id=\"info\"]/p[2]/text()",
-	        "lastChapterName": "//*[@id=\"info\"]/p[4]/a/text()",
-	        "introduce": "//*[@id=\"intro\"]/text()",
+	        "lastUpdateTime": "//*[@id='info']/p[2]/text()",
+	        "lastChapterName": "//*[@id='info']/p[4]/a/text()",
+	        "introduce": "//*[@id='intro']/text()",
 	        "classify": "",
 	        "status": ""
 	    },
-	    "chapterLines": "//*[@id=\"content\"]/p/text()",
+	    "chapterLines": "//*[@id='content']/p/text()",
 	    "chapterEncodeType": "utf-8",
 	    "cleaner": "mimiread.com"
 	}
