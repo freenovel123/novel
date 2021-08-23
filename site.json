@@ -1,5 +1,46 @@
 [
 	{
+		"version": 1,
+	    "siteName": "58小说网",
+	    "baseUrl": "http://www.wbxsw.com/",
+	    "enable": true,
+	    "siteClassify": "优质",
+	    "ruleUpdateTime": "1626939855000",
+	    "author": "steve",
+	    "searchUrl": "http://www.wbxsw.com/search.php",
+	    "searchMethod": "GET",
+	    "searchParam": "?q={keyword}",
+	    "searchEncode": "utf-8",
+	    "searchBookList": "//*[@class='result-list']/div",
+	    "searchBookName": ".//div[@class='result-game-item-detail']/h3/a/span/text()",
+	    "searchBookUrl": ".//div[@class='result-game-item-detail']/h3/a/@href",
+	    "searchAuthor": ".//p[@class='result-game-item-info-tag']/span[2]/text()",
+	    "searchExtraRule": {
+		    "imageUrl": ".//*[@class='result-game-item-pic']/a/img/@src",
+		    "bookSize": "",
+		    "lastUpdateTime": ".//*[@class='result-game-item-info']/p[3]/span[2]/text()",
+		    "lastChapterName": ".//*[@class='result-game-item-info']/p[4]/a/text()",
+		    "introduce": ".//*[@class='result-game-item-desc']/text()",
+		    "classify": ".//*[@class='result-game-item-info']/p[2]/span[2]/text()",
+		    "status": ""
+		},
+	    "catalogChapterList": "//*[@id=\"list\"]/dl/dd",
+	    "catalogChapterName": ".//a/text()",
+	    "catalogChapterUrl": ".//a/@href",
+	    "catalogExtraRule": {
+	        "imageUrl": "//*[@id=\"fmimg\"]/img/@src",
+	        "bookSize": "",
+	        "lastUpdateTime": "",
+	        "lastChapterName": "",
+	        "introduce": "//*[@id=\"intro\"]/text()",
+	        "classify": "",
+	        "status": ""
+	    },
+	    "chapterLines": "//*[@id=\"content\"]/text()",
+	    "chapterEncodeType": "utf-8",
+	    "cleaner": ""
+	},
+	{
 		"version": 3,
 	    "siteName": "春燕小说网",
 	    "baseUrl": "https://www.riei.info/",
