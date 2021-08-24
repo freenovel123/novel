@@ -1,0 +1,101 @@
+body,html{font-family:'PingFang SC',Helvetica,'STHeiti STXihei','Microsoft YaHei',Tohoma,Arial,sans-serif;-webkit-font-smoothing:antialiased;background:#FFFFFF;color:#333333;line-height:1;font-size: 0.6rem;}body,figure,p,h1,h2,h3,h4,ul,li,pre{margin:0}*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}ul,li{list-style:none}a{text-decoration:none}.button{display:inline-block;vertical-align:top;padding:8px 20px;box-sizing:border-box;font-weight:500;font-size: 0.6rem;text-align:center;text-decoration:none;line-height:1.41176471;border-radius: 15px;border:0;overflow:hidden}.button:after{border:0}.button.active{opacity:.9}.button.default{background-color:#F45B4C;color:#FFFFFF}
+
+.main {
+}
+
+.desc_tips {
+	padding: 0.75rem 0.75rem 0;
+	font-size: 0.6rem;
+	line-height: 1.1rem;
+	color: #333;
+}
+
+.form {
+	padding: 0.75rem;
+}
+
+.form .cate {
+	margin: 0.7rem 0;
+	color: #333333;
+	font-size: 0.7rem;
+	border-left: 3px solid #F45B4C;
+	padding-left: 0.25rem;
+}
+
+.form .item {
+	margin-bottom: 0.5rem;
+}
+
+.form .item label {
+	text-align: left;
+    vertical-align: middle;
+    float: left;
+    color: #606266;
+    box-sizing: border-box;
+    margin-top: 0.3rem;
+}
+
+.form .item label i {
+	font-size: 0.4rem;
+	display: block;
+	color: #c8c9cc;
+	padding-top: 0.1rem;
+}
+
+.form .item label i.must {
+	color: #2440b3;
+}
+
+.form .item .content {
+	margin-left: 3.5rem;
+	line-height: 1.5rem;
+    position: relative;
+    font-size: 0.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.form .item .content .input {
+	position: relative;
+    font-size: 0.6rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.form .item .inner {
+	-webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    font-size: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    outline: none;
+    padding: 0 0.5rem;
+    width: 100%;
+    position: relative;
+}
+
+.form .item .select::after{
+	content: "";
+	display: block;
+	width: 0;
+    height: 0;
+    position: absolute;
+    right: 0.5rem;
+    border-left: 0.25rem solid transparent;
+    border-right: 0.25rem solid transparent;
+    border-top: 0.3rem solid #606266;
+    z-index: 1;
+    top: 0.6rem;
+}
+
+.form .item .tips {
+	margin-left: 3.5rem;
+	font-size: 0.5rem;
+	color: #c8c9cc;
+	margin-bottom: 0.2rem;
+}

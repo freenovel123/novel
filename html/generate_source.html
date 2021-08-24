@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>源生成器</title>
+	<meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<meta http-equiv="expires" content="0">
+    <meta name="description" itemprop="description" content="源生成器">
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+</head>
+<body>
+	<div class="main">
+		<div class="desc_tips">1、所有XPath规则字段，不要出现英文状态下的双引号，请使用单引号代替。<br />2、蓝色为必填字段</div>
+		<form class="form" action="#" method="get">
+			<div class="cate">基本信息</div>
+			<div class="item">
+				<label>版本号<i class="must">Version</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="tel" name="version" rule="[{require:true, msg:'版本号不能为空'}, {numeric:true, msg:'版本号必须为整数'}]" value="1"/>
+					</div>
+				</div>
+				<div class="tips">版本号，请使用整数</div>
+			</div>
+			<div class="item">
+				<label>源名称<i class="must">SiteName</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" name="siteName" rule="[{require:true, msg:'源名称不能为空'}]"/>
+					</div>
+				</div>
+				<div class="tips">给这个源起一个响亮的名称</div>
+			</div>
+			<div class="item">
+				<label>源地址<i class="must">BaseUrl</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" name="baseUrl" rule="[{require:true, msg:'源地址不能为空'},{url:true, msg:'源地址必须是一个链接'}]" />
+					</div>
+				</div>
+				<div class="tips">例：http://www.a.com/</div>
+			</div>
+
+			<div class="item">
+				<label>源作者<i>Author</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" name="author" />
+					</div>
+				</div>
+				<div class="tips">你的名字</div>
+			</div>
+			<div class="item">
+				<label>源状态<i class="must">Enable</i></label>
+				<div class="content">
+					<div class="input select">
+						<select class="inner" name="enable">
+							<option value="1">开启</option>
+							<option value="0">关闭</option>
+						</select>
+					</div>
+				</div>
+				<div class="tips">选择开启则源默认为使用状态</div>
+			</div>
+
+			<div class="cate">搜索相关规则</div>
+			<div class="item">
+				<label>搜索地址<i class="must">Url</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" name="searchUrl" rule="[{require:true, msg:'搜索地址不能为空'},{url:true, msg:'搜索地址必须是一个链接'}]" />
+					</div>
+				</div>
+				<div class="tips">例：http://www.a.com/search.php</div>
+			</div>
+			<div class="item">
+				<label>请求方式<i class="must">Method</i></label>
+				<div class="content">
+					<div class="input select">
+						<select class="inner" name="searchMethod">
+							<option value="GET">GET</option>
+							<option value="POST">POST</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>编码<i class="must">Encode</i></label>
+				<div class="content">
+					<div class="input select">
+						<select class="inner" name="searchEncode">
+							<option value="utf-8">UTF-8</option>
+							<option value="gbk">GBK</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>搜索参数<i class="must">Param</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" name="searchParam" placeholder="URL参数格式" rule="[{require:true, msg:'搜索参数不能为空'}]"/>
+					</div>
+				</div>
+				<div class="tips">例：search={keyword}&type=name</div>
+				<div class="tips">关键字替换：{keyword},{keyword_utf8},{keyword_gbk},根据不同场景使用不同的编码方式，默认使用searchEncode参数进行编码</div>
+			</div>
+			<div class="item">
+				<label>搜索列表<i class="must">BookList</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchBookList" rule="[{require:true, msg:'搜索列表不能为空'}]"/>
+					</div>
+				</div>
+				<div class="tips">例：//*[@class='result-list']/div</div>
+			</div>
+			<div class="item">
+				<label>书籍名称<i class="must">BookName</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchBookName" rule="[{require:true, msg:'书籍名称不能为空'}]" />
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>详情地址<i class="must">BookUrl</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchBookUrl" rule="[{require:true, msg:'详情地址不能为空'}]"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>作者<i>Author</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchAuthor"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>封面<i>ImageUrl</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchExtraRule.imageUrl"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>更新时间<i>LastUpdateTime</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchExtraRule.lastUpdateTime"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>最新章<i>LastChapterName</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchExtraRule.lastChapterName"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>详情介绍<i>Introduce</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchExtraRule.introduce"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>分类<i>Classify</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchExtraRule.classify"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>书籍状态<i>Status</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="searchExtraRule.status"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="cate">章节列表相关规则</div>
+			<div class="item">
+				<label>章节列表<i class="must">ChapterList</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogChapterList" rule="[{require:true, msg:'章节列表不能为空'}]"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>章节名称<i class="must">ChapterName</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogChapterName" rule="[{require:true, msg:'章节名称不能为空'}]"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>章节地址<i class="must">ChapterUrl</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogChapterUrl" rule="[{require:true, msg:'章节地址不能为空'}]"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>封面<i>ImageUrl</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogExtraRule.imageUrl"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>更新时间<i>LastUpdateTime</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogExtraRule.lastUpdateTime"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>最新章<i>LastChapterName</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogExtraRule.lastChapterName"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>详情介绍<i>Introduce</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogExtraRule.introduce"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>分类<i>Classify</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogExtraRule.classify"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>书籍状态<i>Status</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="catalogExtraRule.status"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="cate">书籍内容相关规则</div>
+			<div class="item">
+				<label>文章内容<i class="must">ChapterLines</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" placeholder="XPath规则" name="chapterLines" rule="[{require:true, msg:'文章内容不能为空'}]"/>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>内容编码<i class="must">ChapterLines</i></label>
+				<div class="content">
+					<div class="input select">
+						<select class="inner" name="chapterEncodeType">
+							<option value="utf-8">UTF-8</option>
+							<option value="gbk">GBK</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<label>内容净化<i>Cleaner</i></label>
+				<div class="content">
+					<div class="input">
+						<input class="inner" type="text" name="cleaner"/>
+					</div>
+				</div>
+				<div class="tips">清理文本广告等，清除多个请使用“|”隔开，如：我是广告|爱广告|一条广告</div>
+			</div>
+			<div class="item">
+				<label></label>
+				<div class="content">
+					<input type="submit" class="submit button default" value="生成"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/zepto.fn.js"></script>
+	<script type="text/javascript" src="./js/function.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 设置全局字体大小，用于rem单位的自适应
+			let setFontSize = function () {
+			  let width = window.screen.width / 16
+			  document.getElementsByTagName('html')[0].style.cssText = 'font-size: ' + width + 'px !important'
+			}
+			setFontSize()
+			window.onresize = function () {
+			  setFontSize()
+			}
+		});
+
+		$('.form').submit(function(e) {
+			// 表单验证
+			var arr = $('.form').serializeArray();
+
+			var bool = true;
+			$.each(arr, function(i, obj) {
+				var element = $("[name='"+obj.name+"']");
+				var value = element.val();
+
+				var rule = element.attr('rule');
+				if (rule && isArrayStr(rule)) {
+					var ruleArr = eval(rule);
+					$.each(ruleArr, function(r, or) {
+						if (or.require && or.require == true) {
+							if (value.length == 0) {
+								showToast(or.msg ? or.msg : '参数' + obj.name + '不能为空');
+								bool = false;
+								return false;
+							}
+						}
+
+						// 判断整数
+						if (or.numeric && or.numeric == true) {
+							if (!$.isNumeric(value)) {
+								showToast(or.msg ? or.msg : '参数' + obj.name + '必须为整数');
+								bool = false;
+								return false;
+							}
+						}
+
+						// 判断URL
+						if (or.url && or.url == true) {
+							if (!isUrl(value)) {
+								showToast(or.msg ? or.msg : '参数' + obj.name + '不是一个链接');
+								bool = false;
+								return false;
+							}
+						}
+					})
+				}
+
+				if (!bool) {
+					element.focus();
+					return false;
+				}
+
+				// 去除前后空格
+				// element.val($.trim(element.val()));
+			});
+
+			if (!bool) {
+				return false;
+			}
+
+			// 获取json
+			var data = $('.form').serializeJson();
+
+			// 格式化参数
+			// 版本号
+			data.version = data.version * 1;
+
+			// 源地址
+			var lastBaseUrlStr = data.baseUrl.substr(data.baseUrl.length - 1, 1);
+			if (lastBaseUrlStr != '/') {
+				data.baseUrl = data.baseUrl + '/';
+			}
+
+			// 状态
+			if (data.enable == "1") {
+				data.enable = true;
+			} else {
+				data.enable = false;
+			}
+
+			// 搜索参数
+			if (data.searchParam) {
+				var firstStr = data.searchParam.substr(0, 1);
+				if (data.searchMethod == 'POST') {
+					if (firstStr == '?') {
+						data.searchParam = data.searchParam.substr(1, data.searchParam.length);
+					}
+				} else {
+					if (firstStr != '?') {
+						data.searchParam = '?' + data.searchParam;
+					}
+				}
+			}
+
+			console.log(data)
+
+			var jsonStr = JSON.stringify(data);
+
+			// 添加源	
+			addSource(jsonStr);
+
+			return false;
+		});
+	</script>
+</body>
+</html>
