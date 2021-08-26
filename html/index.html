@@ -15,25 +15,25 @@
     	}
 
     	.logo {
-    		width: 100px;
-    		height: 100px;
+    		width: 5rem;
+    		height: 5rem;
     		background: url("./images/logo.png") no-repeat;
     		background-size: 100%;
-    		border-radius: 20px;
-    		margin: 200px auto 0;
+    		border-radius: 1rem;
+    		margin: 8rem auto 0;
     	}
 
     	.title {
-    		font-size: 16px;
+    		font-size: 0.8rem;
     		font-weight: 700;
     		color: #333333;
     		text-align: center;	
-    		padding: 15px 0;
+    		padding: 0.75rem 0;
     	}
 
     	.download {
-    		width: 150px;
-    		margin-top: 20px;
+    		width: 7.5rem;
+    		margin-top: 1rem;
     	}
 
     	.tip {
@@ -48,83 +48,96 @@
     		display: none;
     	}
         .tip-icon {
-        	width: 52px; 
+        	width: 2.6rem; 
         	height: 100%; 
         	background: url("./images/arrow.png") no-repeat;
         	background-size: 100%;
         	display: block; 
         	position: absolute; 
-        	right: 20px; 
-        	top: 20px;
+        	right: 1rem; 
+        	top: 1rem;
         }
         .tip-txt {
-        	margin-top: 107px; 
+        	margin-top: 5.35rem; 
         	color: #fff; 
-        	font-size: 16px; 
+        	font-size: 0.8rem; 
         	line-height: 1.5;
         }
 
         .desc {
-            padding: 20px 30px;
+            padding: 1rem 1.5rem;
             color: #333333;
-            font-size: 12px;
-            line-height: 18px;
+            font-size: 0.6rem;
+            line-height: 0.9rem;
         }
 
     </style>
 </head>
 <body>
-	<div class="pages">
-		<div class="logo"></div>
-		<div class="title">追书先生</div>
-		<div class="button default download" onclick="download()">去下载</div>
-        <div class="desc">追书先生是一款去中心化的阅读工具。全网百万小说免费随便看，玄幻奇幻、都市言情、武侠仙侠、青春校园、穿越架空、惊悚悬疑、历史军事、耽美同人、官场权势、职场竞技、科幻灵异、经典图书等各类小说应有尽有；更重要的是阅读全程无广告，阅读体验一级棒。
-</div>
+<div class="pages">
+	<div class="logo"></div>
+	<div class="title">追书先生</div>
+	<div class="button default download" onclick="download()">去下载</div>
+    <div class="desc">追书先生是一款去中心化的阅读工具。全网百万小说免费随便看，玄幻奇幻、都市言情、武侠仙侠、青春校园、穿越架空、惊悚悬疑、历史军事、耽美同人、官场权势、职场竞技、科幻灵异、经典图书等各类小说应有尽有；更重要的是阅读全程无广告，阅读体验一级棒。</div>
 
-		<div class="tip" id="tip">
-			<span class="tip-icon"></span>
-			<p class="tip-txt">点击右上角<br/>选择在浏览器中打开进行下载安装</p>
-		</div>
-	</div>
-	<script type="text/javascript">
-    window.onload = function(){
-        download();
+	<div class="tip" id="tip">
+        <span class="tip-icon"></span>
+        <p class="tip-txt">点击右上角<br/>选择在浏览器中打开进行下载安装</p>
+    </div>
+</div>
+<script type="text/javascript">
+window.onload = function(){
+    // 设置全局字体大小，用于rem单位的自适应
+    let setFontSize = function () {
+        let width = window.screen.width / 16
+        document.getElementsByTagName('html')[0].style.cssText = 'font-size: ' + width + 'px !important'
+    }
+    setFontSize()
+    window.onresize = function () {
+        setFontSize()
     }
 
-    function download() {
-        if(isWeiXin()){
-            var tip = document.getElementById('tip')
-            tip.style.display = 'block'
-        } else {
-            var UA = navigator.userAgent,devicesType = "android";
-            (UA.indexOf("iPhone") > -1 || UA.indexOf("iPad") > -1) && (devicesType = "iPhone");
-            if(devicesType === "android"){
-                var url = "../version.json"
-                var request = new XMLHttpRequest();
-                request.open("get", url);
-                request.send(null);
-                request.onload = function () {
-                    if (request.status == 200) {
-                        var json = JSON.parse(request.responseText);
-                        location.href = json.url;
-                    }
+    download();
+}
+
+function download() {
+    if(isWeiXin()){
+        var tip = document.getElementById('tip')
+        tip.style.display = 'block'
+    } else {
+        var UA = navigator.userAgent,devicesType = "android";
+        (UA.indexOf("iPhone") > -1 || UA.indexOf("iPad") > -1) && (devicesType = "iPhone");
+        if(devicesType === "android"){
+            var url = "../version.json"
+            var request = new XMLHttpRequest();
+            request.open("get", url);
+            request.send(null);
+            request.onload = function () {
+                if (request.status == 200) {
+                    var json = JSON.parse(request.responseText);
+                    location.href = json.url;
                 }
             }
-            if(devicesType === "iPhone") {
-                // alert("跳转appstore")
-                location.href = "https://apps.apple.com/cn/app/id1569793141";
-            }
+        }
+        if(devicesType === "iPhone") {
+            // alert("跳转appstore")
+            location.href = "https://apps.apple.com/cn/app/id1569793141";
         }
     }
+}
 
-    function isWeiXin(){
-        var ua = window.navigator.userAgent.toLowerCase();
-        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-            return true;
-        }else{
-            return false;
-        }
+/**
+ * 是否为微信
+ * @return {Boolean} [description]
+ */
+function isWeiXin(){
+    var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+        return true;
+    }else{
+        return false;
     }
+}
 </script>
 </body>
 </html>

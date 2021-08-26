@@ -1,14 +1,31 @@
 /**
+ * is ios
+ * @return {Boolean} [description]
+ */
+function isIOS() {
+    var u = navigator.userAgent;
+    if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
  * toast
  * @param  {[type]} str [description]
  * @return {[type]}     [description]
  */
 function showToast(str) {
-	if (window.novel && (typeof window.novel.toast === "function")) {
-		window.novel.toast(str);
-	} else {
-		alert(str);
-	}
+    if (isIOS() && window.webkit) {
+        window.webkit.messageHandlers.showToast.postMessage({body: str});
+    } else {
+    	if (window.novel && (typeof window.novel.toast === "function")) {
+    		window.novel.toast(str);
+    	} else {
+    		alert(str);
+    	}
+    }
 }
 
 /**
@@ -16,8 +33,12 @@ function showToast(str) {
  * @return {[type]} [description]
  */
 function closeWindow() {
-    if (window.novel && (typeof window.novel.closeWindow === "function")) {
-        window.novel.closeWindow();
+    if (isIOS() && window.webkit) {
+        window.webkit.messageHandlers.closeWindow.postMessage();
+    } else {
+        if (window.novel && (typeof window.novel.closeWindow === "function")) {
+            window.novel.closeWindow();
+        }
     }
 }
 
@@ -26,10 +47,14 @@ function closeWindow() {
  * @param {[type]} str [description]
  */
 function addSource(str) {
-    if (window.novel && (typeof window.novel.addSource === "function")) {
-        window.novel.addSource(str);
+    if (isIOS() && window.webkit) {
+        window.webkit.messageHandlers.addSource.postMessage({body: str});
     } else {
-        showToast('不支持添加');
+        if (window.novel && (typeof window.novel.addSource === "function")) {
+            window.novel.addSource(str);
+        } else {
+            showToast(str);
+        }
     }
 }
 

@@ -1,41 +1,41 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="charset" content="utf-8"/>
-    <meta content=yes name=apple-mobile-web-app-capable>
-    <meta content=yes name=apple-touch-fullscreen>
-    <meta content="telephone=no,email=no" name=format-detection>
-    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta charset="utf-8" />
     <title>隐私协议</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" itemprop="description" content="追书神器,追书先生,追书,隐私协议">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
     <style type="text/css">
-    	body,html{font-family:'PingFang SC',Helvetica,'STHeiti STXihei','Microsoft YaHei',Tohoma,Arial,sans-serif;-webkit-font-smoothing:antialiased;background:#FFFFFF;color:#333333;line-height:1}body,figure,p,h1,h2,h3,h4,ul,li,pre{margin:0}*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}ul,li{list-style:none}a{text-decoration:none}.button{display:inline-block;vertical-align:top;padding:8px 20px;box-sizing:border-box;font-weight:500;font-size: 14px;text-align:center;text-decoration:none;line-height:1.41176471;border-radius: 15px;border:0;overflow:hidden}.button:after{border:0}.button.active{opacity:.9}.button.default{background-color:#495afc;color:#FFFFFF}
-
     	.main {
-    		padding: 15px;
+    		padding: 0.75rem;
     		color: #333333;
     	}
 
     	.title {
-    		font-size: 22px;
+    		font-size: 1.1rem;
     		width: 100%;
     		text-align: center;
-    		padding: 20px 0;
+    		padding: 1rem 0;
     		font-family: PingFangSC-Bold;
     	}
 
     	.content {
-    		font-size: 14px;
+    		font-size: 0.7rem;
     	}
 
     	.content p {
-    		margin: 10px 0;
-    		line-height: 30px;
-    		text-indent: 30px;
+    		margin: 0.5rem 0;
+    		line-height: 1.5rem;
+    		text-indent: 1.5rem;
     	}
 
     	.content .s {
     		font-weight: 700;
-    		margin-top: 15px;
+    		margin-top: 0.75rem;
     		text-indent: 0px;
     	}
 
@@ -90,4 +90,18 @@
             <p class="s">本《协议》版权由追书先生所有，追书先生保留一切对本《协议》解释的权利。</p>
 		</div>
 	</div>
+    <script type="text/javascript">
+        window.onload = function(){
+            // 设置全局字体大小，用于rem单位的自适应
+            let setFontSize = function () {
+                let width = window.screen.width / 16
+                document.getElementsByTagName('html')[0].style.cssText = 'font-size: ' + width + 'px !important'
+            }
+            setFontSize()
+            window.onresize = function () {
+                setFontSize()
+            }
+        }
+    </script>
 </body>
+</html>
