@@ -1,7 +1,7 @@
 {
-	"title": "1.3.1版本",
-  	"version": 131,
+	"title": "1.3.2版本",
+  	"version": 132,
   	"url": "https://apps.apple.com/cn/app/id1569793141",
-  	"log": "优化左右平移、覆盖翻页效果",
+  	"log": "增加添加书源引导\n增加自动朗读\n优化翻页性能\n增加阅读设置（单手模式、繁简体互转）\n增加单手模式",
   	"constraint": false
 }
