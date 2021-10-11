@@ -1,7 +1,8 @@
 {
-	"title": "1.2.0版本",
-  	"version": 120,
+	"title": "1.3.2版本",
+  	"version": 132,
   	"url": "https://apps.apple.com/cn/app/id1569793141",
-  	"log": "正式上线啦",
-  	"constraint": false
+  	"log": "增加添加书源引导\n增加自动朗读\n优化翻页性能\n增加阅读设置（单手模式、繁简体互转）\n增加单手模式",
+  	"constraint": false,
+  	"openTabbarRank": true
 }
