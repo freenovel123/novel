@@ -1,6 +1,47 @@
 [
 	{
 		"version": 1,
+	    "siteName": "笔趣阁tlzx",
+	    "baseUrl": "http://www.tongluzixun.com/",
+	    "enable": true,
+	    "siteClassify": "优质",
+	    "ruleUpdateTime": "1634204202000",
+	    "author": "steve",
+	    "searchUrl": "http://www.tongluzixun.com/ar.php",
+	    "searchMethod": "GET",
+	    "searchParam": "?keyWord={keyword}",
+	    "searchEncode": "utf-8",
+	    "searchBookList": "//*[@class='txt-list txt-list-row5'][1]/li/following-sibling::*",
+	    "searchBookName": ".//span[@class='s2']/a/text()",
+	    "searchBookUrl": ".//span[@class='s2']/a/@href",
+	    "searchAuthor": ".//span[@class='s4']/text()",
+	    "searchExtraRule": {
+		    "imageUrl": "",
+		    "bookSize": "",
+		    "lastUpdateTime": ".//span[@class='s5']/text()",
+		    "lastChapterName": ".//span[@class='s3']/a/text()",
+		    "introduce": "",
+		    "classify": ".//span[@class='s1']/text()",
+		    "status": ""
+		},
+	    "catalogChapterList": "//*[@class='section-box'][2]/ul/li",
+	    "catalogChapterName": ".//a/text()",
+	    "catalogChapterUrl": ".//a/@href",
+	    "catalogExtraRule": {
+	        "imageUrl": "//*[@class='imgbox']/img/@src",
+	        "bookSize": "",
+	        "lastUpdateTime": "//*[@class='info']/div/div[@class='fix']/p[5]/text()",
+	        "lastChapterName": "",
+	        "introduce": "//*[@class='info']/div[@class='desc xs-hidden']/text()",
+	        "classify": "",
+	        "status": ""
+	    },
+	    "chapterLines": "//*[@id='content']/text()",
+	    "chapterEncodeType": "utf-8",
+	    "cleaner": ""
+	},
+	{
+		"version": 1,
 	    "siteName": "58小说网",
 	    "baseUrl": "http://www.wbxsw.com/",
 	    "enable": true,
@@ -24,19 +65,19 @@
 		    "classify": ".//*[@class='result-game-item-info']/p[2]/span[2]/text()",
 		    "status": ""
 		},
-	    "catalogChapterList": "//*[@id=\"list\"]/dl/dd",
+	    "catalogChapterList": "//*[@id='list']/dl/dd",
 	    "catalogChapterName": ".//a/text()",
 	    "catalogChapterUrl": ".//a/@href",
 	    "catalogExtraRule": {
-	        "imageUrl": "//*[@id=\"fmimg\"]/img/@src",
+	        "imageUrl": "//*[@id='fmimg']/img/@src",
 	        "bookSize": "",
 	        "lastUpdateTime": "",
 	        "lastChapterName": "",
-	        "introduce": "//*[@id=\"intro\"]/text()",
+	        "introduce": "//*[@id='intro']/text()",
 	        "classify": "",
 	        "status": ""
 	    },
-	    "chapterLines": "//*[@id=\"content\"]/text()",
+	    "chapterLines": "//*[@id='content']/text()",
 	    "chapterEncodeType": "utf-8",
 	    "cleaner": ""
 	},
