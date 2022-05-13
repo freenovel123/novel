@@ -1,6 +1,47 @@
 [
 	{
 		"version": 1,
+		"siteName": "鸟书网",
+		"baseUrl": "https://www.99mk.com/",
+		"enable": true,
+		"siteClassify": "优质",
+		"ruleUpdateTime": "1634204202000",
+		"author": "steve",
+		"searchUrl": "https://www.99mk.com/read/search/",
+		"searchMethod": "POST",
+		"searchParam": "searchkey={keyword}",
+		"searchEncode": "utf-8",
+		"searchBookList": "//*[@class='bookbox']",
+		"searchBookName": "//h4[@class='bookname']/a/text()",
+		"searchBookUrl": "//h4[@class='bookname']/a/@href",
+		"searchAuthor": "//div[@class='author']/text()",
+		"searchExtraRule": {
+			"imageUrl": "//div[@class='bookimg']/a/img/@src",
+			"bookSize": "",
+			"lastUpdateTime": "",
+			"lastChapterName": "//div[@class='update']/a/text()",
+			"introduce": "",
+			"classify": "",
+			"status": ""
+		},
+		"catalogChapterList": "//*[@class='listmain']/dl/dt[2]/following-sibling::*",
+		"catalogChapterName": ".//a/text()",
+		"catalogChapterUrl": ".//a/@href",
+		"catalogExtraRule": {
+			"imageUrl": "//*[@class='info']/div[@class='cover']/img/@src",
+			"bookSize": "//*[@class='info']/div[@class='small']/span[4]/text()",
+			"lastUpdateTime": "//*[@class='info']/div[@class='small']/span[5]/text()",
+			"lastChapterName": "//*[@class='info']/div[@class='small']/span[6]/a/text()",
+			"introduce": "//*[@class='info']/div[@class='intro']/text()",
+			"classify": "//*[@class='info']/div[@class='small']/span[2]/text()",
+			"status": "//*[@class='info']/div[@class='small']/span[3]/text()"
+		},
+		"chapterLines": "//*[@id='content']/text()",
+		"chapterEncodeType": "utf-8",
+		"cleaner": "请记住本书首发域名：99mk.com。鸟书网手机版阅读网址：m.99mk.com"
+	},
+	{
+		"version": 1,
 		"siteName": "天下书小说网",
 		"baseUrl": "https://www.aixiawx.com/",
 		"enable": true,
