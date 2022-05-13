@@ -1,6 +1,6 @@
 [
 	{
-		"version": 1,
+		"version": 2,
 		"siteName": "鸟书网",
 		"baseUrl": "https://www.99mk.com/",
 		"enable": true,
@@ -12,14 +12,14 @@
 		"searchParam": "searchkey={keyword}",
 		"searchEncode": "utf-8",
 		"searchBookList": "//*[@class='bookbox']",
-		"searchBookName": "//h4[@class='bookname']/a/text()",
-		"searchBookUrl": "//h4[@class='bookname']/a/@href",
-		"searchAuthor": "//div[@class='author']/text()",
+		"searchBookName": ".//h4[@class='bookname']/a/text()",
+		"searchBookUrl": ".//h4[@class='bookname']/a/@href",
+		"searchAuthor": ".//div[@class='author']/text()",
 		"searchExtraRule": {
-			"imageUrl": "//div[@class='bookimg']/a/img/@src",
+			"imageUrl": ".//div[@class='bookimg']/a/img/@src",
 			"bookSize": "",
 			"lastUpdateTime": "",
-			"lastChapterName": "//div[@class='update']/a/text()",
+			"lastChapterName": ".//div[@class='update']/a/text()",
 			"introduce": "",
 			"classify": "",
 			"status": ""
