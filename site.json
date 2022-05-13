@@ -1,5 +1,46 @@
 [
 	{
+		"version": 1,
+		"siteName": "天下书小说网",
+		"baseUrl": "https://www.aixiawx.com/",
+		"enable": true,
+		"siteClassify": "优质",
+		"ruleUpdateTime": "1634204202000",
+		"author": "steve",
+		"searchUrl": "https://www.aixiawx.com/modules/article/search.php",
+		"searchMethod": "POST",
+		"searchParam": "searchkey={keyword}&searchtype=articlename",
+		"searchEncode": "utf-8",
+		"searchBookList": "//*[@class='grid']/tbody/tr[1]/following-sibling::*",
+		"searchBookName": ".//td[@class='even'][1]/a/text()",
+		"searchBookUrl": ".//td[@class='even'][1]/a/@href",
+		"searchAuthor": ".//td[@class='even'][2]/text()",
+		"searchExtraRule": {
+			"imageUrl": "",
+			"bookSize": "",
+			"lastUpdateTime": ".//td[@class='enev'][3]/text()",
+			"lastChapterName": ".//td[@class='odd'][1]/a/text()",
+			"introduce": "",
+			"classify": "",
+			"status": ""
+		},
+		"catalogChapterList": "//*[@id='list']/dl/dt[2]/following-sibling::*",
+		"catalogChapterName": ".//a/text()",
+		"catalogChapterUrl": ".//a/@href",
+		"catalogExtraRule": {
+			"imageUrl": "//*[@id='fmimg']/img/@src",
+			"bookSize": "",
+			"lastUpdateTime": "//*[@id='info']/p[3]/text()",
+			"lastChapterName": "",
+			"introduce": "//*[@id='intro']/p/text()",
+			"classify": "",
+			"status": ""
+		},
+		"chapterLines": "//*[@id='content']/text()",
+		"chapterEncodeType": "utf-8",
+		"cleaner": ""
+	},
+	{
 		"version": 2,
 		"siteName": "新笔趣阁La",
 		"baseUrl": "https://www.xbiquge.la/",
