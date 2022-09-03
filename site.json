@@ -1,5 +1,46 @@
 [
 	{
+		"version": 1,
+		"siteName": "剑士小说网",
+		"baseUrl": "https://www.jianshi8.com/",
+		"enable": true,
+		"siteClassify": "优质",
+		"ruleUpdateTime": "1634204202000",
+		"author": "steve",
+		"searchUrl": "https://www.jianshi8.com/s",
+		"searchMethod": "GET",
+		"searchParam": "?q={keyword}",
+		"searchEncode": "utf-8",
+		"searchBookList": "//*[@class='bookbox']",
+		"searchBookName": ".//h4[@class='bookname']/a/text()",
+		"searchBookUrl": ".//h4[@class='bookname']/a/@href",
+		"searchAuthor": ".//div[@class='author']/text()",
+		"searchExtraRule": {
+			"imageUrl": ".//div[@class='bookimg']/a/img/@src",
+			"bookSize": "",
+			"lastUpdateTime": "",
+			"lastChapterName": "",
+			"introduce": ".//div[@class='uptime']/text()",
+			"classify": "",
+			"status": ""
+		},
+		"catalogChapterList": "//div[@class='listmain']/dl/descendant::dd[not(contains(@class,'more'))]",
+		"catalogChapterName": ".//a/text()",
+		"catalogChapterUrl": ".//a/@href",
+		"catalogExtraRule": {
+			"imageUrl": "//*[@class='info']/div[@class='cover']/img/@src",
+			"bookSize": "",
+			"lastUpdateTime": "//*[@class='info']/div[@class='small']/span[3]/text()",
+			"lastChapterName": "//*[@class='info']/div[@class='small']/span[4]/a/text()",
+			"introduce": "//*[@class='info']/div[@class='intro']//dd/text()",
+			"classify": "",
+			"status": "//*[@class='info']/div[@class='small']/span[2]/text()"
+		},
+		"chapterLines": "//*[@id='chaptercontent']/text()",
+		"chapterEncodeType": "utf-8",
+		"cleaner": "铭记本书网址：www.jianshi8.com。剑士小说网手机版阅读：m.jianshi8.com"
+	},
+	{
 		"version": 2,
 		"siteName": "鸟书网",
 		"baseUrl": "https://www.99mk.com/",
