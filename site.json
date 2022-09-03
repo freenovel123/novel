@@ -176,7 +176,7 @@
 		"searchParam": "?keyword={keyword}",
 		"searchEncode": "utf-8",
 		"searchBookList": "//*[contains(@class,'result-list')]/div",
-		"searchBookName": ".//div[@class='result-game-item-detail']/h3/a/text()",
+		"searchBookName": ".//div[@class='result-game-item-detail']/h3/a/@title",
 		"searchBookUrl": ".//div[@class='result-game-item-detail']/h3/a/@href",
 		"searchAuthor": ".//div[@class='result-game-item-info']/p[1]/span[2]/text()",
 		"searchExtraRule": {
@@ -217,7 +217,7 @@
 		"searchParam": "?keyword={keyword}",
 		"searchEncode": "utf-8",
 		"searchBookList": "//*[contains(@class,'result-list')]/div",
-		"searchBookName": ".//div[@class='result-game-item-detail']/h3/a/text()",
+		"searchBookName": ".//div[@class='result-game-item-detail']/h3/a/@title",
 		"searchBookUrl": ".//div[@class='result-game-item-detail']/h3/a/@href",
 		"searchAuthor": ".//div[@class='result-game-item-info']/p[1]/span[2]/text()",
 		"searchExtraRule": {
