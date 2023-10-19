@@ -1,5 +1,46 @@
 [
 	{
+		"version": 1,
+	    "siteName": "笔趣阁",
+	    "baseUrl": "https://www.ydxrf.com/",
+	    "enable": true,
+	    "siteClassify": "优质",
+	    "ruleUpdateTime": "1697706291600",
+	    "author": "steve",
+	    "searchUrl": "https://www.ydxrf.com/user/search.html",
+	    "searchMethod": "GET",
+	    "searchParam": "?q={keyword}",
+	    "searchEncode": "utf-8",
+	    "searchBookList": "//*[@id='book-list']/ul/li[position()>1]",
+	    "searchBookName": ".//span[3]/a",
+	    "searchBookUrl": ".//span[3]/a/@href",
+	    "searchAuthor": ".//span[4]",
+	    "searchExtraRule": {
+	        "imageUrl": "",
+	        "bookSize": "",
+	        "lastUpdateTime": ".//span[5]/text()",
+	        "lastChapterName": ".//span[7]/a/text()",
+	        "introduce": "",
+	        "classify": ".//span[2]/text()",
+	        "status": ".//span[6]/text()"
+	    },
+	    "catalogChapterList": "//*[@id='list']/dl/dd",
+	    "catalogChapterName": ".//a/text()",
+	    "catalogChapterUrl": ".//a/@href",
+	    "catalogExtraRule": {
+	        "imageUrl": "//*[@class='pic']/img/@src",
+	        "bookSize": "",
+	        "lastUpdateTime": "//*[@class='infobar']/p[4]/text()",
+	        "lastChapterName": "//*[@class='infobar']/p[5]/a/text()",
+	        "introduce": "//*[@class='intro']/p/text()",
+	        "classify": "",
+	        "status": ""
+	    },
+	    "chapterLines": "//*[@id='htmlContent']/p/text()",
+	    "chapterEncodeType": "utf-8",
+	    "cleaner": ""
+	},
+	{
 		"version": 4,
 		"siteName": "香书小说",
 		"baseUrl": "https://www.ibiquges.org/",
