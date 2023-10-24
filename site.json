@@ -41,7 +41,7 @@
 	    "cleaner": ""
 	},
 	{
-		"version": 4,
+		"version": 5,
 		"siteName": "香书小说",
 		"baseUrl": "https://www.ibiquges.org/",
 		"enable": true,
