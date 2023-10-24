@@ -1,6 +1,6 @@
 [
 	{
-		"version": 1,
+		"version": 2,
 	    "siteName": "笔趣阁",
 	    "baseUrl": "https://www.ydxrf.com/",
 	    "enable": true,
@@ -11,7 +11,7 @@
 	    "searchMethod": "GET",
 	    "searchParam": "?q={keyword}",
 	    "searchEncode": "utf-8",
-	    "searchBookList": "//*[@id='book-list']/ul/li[position()>1]",
+	    "searchBookList": "//*[@id='book-list']/ul/li",
 	    "searchBookName": ".//span[3]/a",
 	    "searchBookUrl": ".//span[3]/a/@href",
 	    "searchAuthor": ".//span[4]",
