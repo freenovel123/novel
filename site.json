@@ -11,7 +11,7 @@
 		"searchMethod": "GET",
 		"searchParam": "?searchkey={keyword}",
 		"searchEncode": "utf-8",
-		"searchBookList": "//*[@class='grid']/tbody/tr[position()>1]",
+		"searchBookList": "//*[@class='grid']//tr[position()>1]",
 		"searchBookName": ".//td[@class='even'][1]/a/text()",
 		"searchBookUrl": ".//td[@class='even'][1]/a/@href",
 		"searchAuthor": ".//td[@class='even'][2]/text()",
