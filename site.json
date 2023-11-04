@@ -1,6 +1,6 @@
 [
 	{
-		"version": 9,
+		"version": 10,
 		"siteName": "香书小说",
 		"baseUrl": "https://www.ibiquges.org/",
 		"enable": true,
@@ -39,5 +39,46 @@
 		"chapterLines": "//*[@id='content']/text()",
 		"chapterEncodeType": "utf-8",
 		"cleaner": ""
+	},
+	{
+		"version": 1,
+		"siteName": "爱书包",
+		"baseUrl": "https://www.ishubao.org/",
+		"enable": true,
+		"siteClassify": "优质",
+		"ruleUpdateTime": "1662189291000",
+		"author": "steve",
+		"searchUrl": "https://www.ishubao.org/modules/article/search.php",
+		"searchMethod": "GET",
+		"searchParam": "?q={keyword}",
+		"searchEncode": "utf-8",
+		"searchBookList": "//*[@class='mains']//tr[position()>1]",
+		"searchBookName": ".//td/a/text()",
+		"searchBookUrl": ".//td/a/@href",
+		"searchAuthor": ".//td[3]/text()",
+		"searchExtraRule": {
+			"imageUrl": "",
+			"bookSize": "",
+			"lastUpdateTime": ".//td[5]/text()",
+			"lastChapterName": ".//td[2]/a/text()",
+			"introduce": "",
+			"classify": "",
+			"status": ""
+		},
+		"catalogChapterList": "//div[@class='article']//ul/li",
+		"catalogChapterName": ".//a/text()",
+		"catalogChapterUrl": ".//a/@href",
+		"catalogExtraRule": {
+			"imageUrl": "//div[@class='img']/img/@src",
+			"bookSize": "",
+			"lastUpdateTime": "",
+			"lastChapterName": "",
+			"introduce": "//div[@id='intro']/p/text()",
+			"classify": "",
+			"status": ""
+		},
+		"chapterLines": "//*[@id='book_text']/text()",
+		"chapterEncodeType": "utf-8",
+		"cleaner": "一秒记住【39小说网|】，精彩小说无弹窗免费阅读！"
 	}
 ]
