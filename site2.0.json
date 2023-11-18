@@ -32,6 +32,7 @@
             "list": "//*[@id='list']/dl/dd",
             "name": ".//a/text()",
             "url": ".//a/@href",
+            "encode": "utf-8",
             "ruleExtra": {
                 "imageUrl": "//*[@id='fmimg']/img/@src",
                 "bookSize": "",
@@ -81,6 +82,7 @@
             "list": "//*[@id='readerlist']/ul/li/a",
             "name": ".//text()",
             "url": ".//@href",
+            "encode": "utf-8",
             "ruleExtra": {
                 "imageUrl": "",
                 "bookSize": "",
