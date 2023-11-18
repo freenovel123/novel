@@ -1,97 +1,100 @@
-[{
-	"version": 1,
-	"siteName": "香书小说",
-	"baseUrl": "https://www.ibiquges.org/",
-	"author": "steve",
-	"contact": "",
-	"engine": "xpath",
-	"header": {},
-	"cookies": {},
-	"ruleSearch": {
-		"url": "https://www.ibiquges.org/modules/article/waps.php",
-		"method": "GET",
-		"params": {
-			"searchkey": "{keyword}"
-		},
-		"encode": "utf-8",
-		"bookList": "//*[@class='grid']/tbody/tr[position()>1]",
-		"bookName": ".//td[@class='even'][1]/a/text()",
-		"bookUrl": ".//td[@class='even'][1]/a/@href",
-		"bookAuthor": ".//td[@class='even'][2]/text()",
-		"ruleExtra": {
-			"imageUrl": "",
-			"lastUpdateTime": ".//td[@class='odd'][2]/text()",
-			"lastChapterName": ".//td[@class='odd'][1]/a/text()",
-			"introduce": "",
-			"classify": "",
-			"status": ""
-		}
-	},
-	"ruleChapter": {
-		"list": "//*[@id='list']/dl/dd",
-		"name": ".//a/text()",
-		"url": ".//a/@href",
-		"ruleExtra": {
-			"imageUrl": "//*[@id='fmimg']/img/@src",
-			"bookSize": "",
-			"lastUpdateTime": "//*[@id='info']/p[3]/text()",
-			"lastChapterName": "",
-			"introduce": "//*[@id='intro']/p[2]/text()",
-			"classify": "",
-			"status": ""
-		}
-	},
-	"ruleContent": {
-		"lines": "//*[@id='content']/text()",
-		"encode": "utf-8",
-		"cleaner": ""
-	}
-}, {
-	"version": 1,
-	"siteName": "溜达小说",
-	"baseUrl": "http://www.liudatxt.net/",
-	"author": "steve",
-	"contact": "",
-	"engine": "xpath",
-	"header": {},
-	"cookies": {},
-	"ruleSearch": {
-		"url": "http://www.liudatxt.net/search.php",
-		"method": "GET",
-		"params": {
-			"searchkey": "{keyword}"
-		},
-		"encode": "utf-8",
-		"bookList": "//*[@id='sitembox']/dl",
-		"bookName": ".//dd/h3/a/text()",
-		"bookUrl": ".//dd/h3/a/@href",
-		"bookAuthor": ".//dd[2]/span[1]/text()",
-		"ruleExtra": {
-			"imageUrl": ".//dt/a/img/@src",
-			"lastUpdateTime": ".//dd[4]/span/text()",
-			"lastChapterName": ".//dd[4]/a/text()",
-			"introduce": "",
-			"classify": "",
-			"status": ".//dd[2]/span[2]/text()"
-		}
-	},
-	"ruleChapter": {
-		"list": "//*[@id='readerlist']/ul/li/a",
-		"name": ".//text()",
-		"url": ".//@href",
-		"ruleExtra": {
-			"imageUrl": "",
-			"bookSize": "",
-			"lastUpdateTime": "",
-			"lastChapterName": "",
-			"introduce": "",
-			"classify": "//*[@id='smallcons']/span[1]/text()",
-			"status": ""
-		}
-	},
-	"ruleContent": {
-		"lines": "//*[@id='content']/text()",
-		"encode": "utf-8",
-		"cleaner": ""
-	}
-}]
+[
+    {
+        "version": 1,
+        "siteName": "香书小说",
+        "baseUrl": "https://www.ibiquges.org/",
+        "author": "steve",
+        "contact": "",
+        "engine": "xpath",
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "url": "https://www.ibiquges.org/modules/article/waps.php",
+            "method": "GET",
+            "params": {
+                "searchkey": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@class='grid']/tbody/tr[position()>1]",
+            "bookName": ".//td[@class='even'][1]/a/text()",
+            "bookUrl": ".//td[@class='even'][1]/a/@href",
+            "bookAuthor": ".//td[@class='even'][2]/text()",
+            "ruleExtra": {
+                "imageUrl": "",
+                "lastUpdateTime": ".//td[@class='odd'][2]/text()",
+                "lastChapterName": ".//td[@class='odd'][1]/a/text()",
+                "introduce": "",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "list": "//*[@id='list']/dl/dd",
+            "name": ".//a/text()",
+            "url": ".//a/@href",
+            "ruleExtra": {
+                "imageUrl": "//*[@id='fmimg']/img/@src",
+                "bookSize": "",
+                "lastUpdateTime": "//*[@id='info']/p[3]/text()",
+                "lastChapterName": "",
+                "introduce": "//*[@id='intro']/p[2]/text()",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleContent": {
+            "lines": "//*[@id='content']/text()",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 1,
+        "siteName": "溜达小说",
+        "baseUrl": "http://www.liudatxt.net/",
+        "author": "steve",
+        "contact": "",
+        "engine": "xpath",
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "url": "http://www.liudatxt.net/search.php",
+            "method": "GET",
+            "params": {
+                "searchkey": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@id='sitembox']/dl",
+            "bookName": ".//dd/h3/a/text()",
+            "bookUrl": ".//dd/h3/a/@href",
+            "bookAuthor": ".//dd[2]/span[1]/text()",
+            "ruleExtra": {
+                "imageUrl": ".//dt/a/img/@src",
+                "lastUpdateTime": ".//dd[4]/span/text()",
+                "lastChapterName": ".//dd[4]/a/text()",
+                "introduce": "",
+                "classify": "",
+                "status": ".//dd[2]/span[2]/text()"
+            }
+        },
+        "ruleChapter": {
+            "list": "//*[@id='readerlist']/ul/li/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "ruleExtra": {
+                "imageUrl": "",
+                "bookSize": "",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": "",
+                "classify": "//*[@id='smallcons']/span[1]/text()",
+                "status": ""
+            }
+        },
+        "ruleContent": {
+            "lines": "//*[@id='content']/text()",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    }
+]
