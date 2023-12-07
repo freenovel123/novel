@@ -27,6 +27,8 @@
 | 参数         | 名称     | 参数类型   | 是否必填 | 示例值                               | 描述                                                              |
 | :--------- | :----- | :----- | :--- | :-------------------------------- | :-------------------------------------------------------------- |
 | engine     | 解析引擎   | String | 是    | xpath                             | 取值范围`xpath,jsonpath`                                            |
+| request    | 请求信息   | String | 否    | @js: return config;               | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等                               |
+| response   | 响应处理   | String | 否    | @js: return html;                 | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理                                |
 | url        | 搜索地址   | String | 是    | <https://www.a.com/search/>       | 站点的搜索地址                                                         |
 | method     | 请求方式   | String | 是    | GET                               | 取值范围`GET,POST`                                                  |
 | params     | 请求参数   | JSON   | 是    | `{"name":"{keyword}","type":"0"}` | 参数中的{keyword}是搜索中的关键字，比如搜索”三国演义“，那么在实际请求中"{keyword}"会被替换成"三国演义" |
@@ -42,6 +44,8 @@
 | 参数        | 名称     | 参数类型   | 是否必填 | 示例值                                                  | 描述                        |
 | :-------- | :----- | :----- | :--- | :--------------------------------------------------- | :------------------------ |
 | engine    | 解析引擎   | String | 是    | jsonpath                                             | 取值范围`xpath,jsonpath`      |
+| request    | 请求信息   | String | 否    | @js: return config;               | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等                               |
+| response   | 响应处理   | String | 否    | @js: return html;                 | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理                                |
 | encode    | 编码方式   | String | 是    | utf-8                                                | 取值范围`utf-8,gbk`，默认认为utf-8 |
 | list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                 | 规则代码                      |
 | name      | 章节名称规则 | String | 是    | chapterName                                          | 这里的取值方式是获取list中的Dom或者JSON |
@@ -50,10 +54,25 @@
 
 ### 1.3、正文规则说明
 
-| 参数      | 名称   | 参数类型   | 是否必填 | 示例值             | 描述                     |
-| :------ | :--- | :----- | :--- | :-------------- | :--------------------- |
-| engine  | 解析引擎 | String | 是    | jsonpath        | 取值范围`xpath,jsonpath`   |
-| encode  | 编码方式 | String | 是    | utf-8   | 取值范围`utf-8,gbk`，默认认为utf-8 |
-| lines   | 正文规则 | String | 是    | \$.data.content | 规则代码                   |
-| cleaner | 净化规则 | String | 否    | 你好\|张三\|李四      | 净化文章中一些广告内容，多个使用"\|"分割 |
+| 参数      | 名称   | 参数类型   | 是否必填 | 示例值             | 描述                        |
+| :------ | :--- | :----- | :--- | :-------------- | :------------------------ |
+| engine  | 解析引擎 | String | 是    | jsonpath        | 取值范围`xpath,jsonpath`      |
+| request    | 请求信息   | String | 否    | @js: return config;               | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等                               |
+| response   | 响应处理   | String | 否    | @js: return html;                 | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理                                |
+| encode  | 编码方式 | String | 是    | utf-8           | 取值范围`utf-8,gbk`，默认认为utf-8 |
+| lines   | 正文规则 | String | 是    | \$.data.content | 规则代码                      |
+| cleaner | 净化规则 | String | 否    | 你好\|张三\|李四      | 净化文章中一些广告内容，多个使用"\|"分割    |
+
+### 1.4、追加规则说明
+
+| 参数              | 名称        | 参数类型   | 是否必填 | 示例值        | 描述 |
+| :-------------- | :-------- | :----- | :--- | :--------- | :- |
+| imageUrl        | 封面地址规则    | String | 否    | pic        |    |
+| lastUpdateTime  | 最后更新的时间规则 | String | 否    | updateTime |    |
+| lastChapterName | 最新的章节名称规则 | String | 否    | lastName   |    |
+| introduce       | 书籍介绍规则    | String | 否    | intro      |    |
+| classify        | 书籍分类规则    | String | 否    | category   |    |
+| status          | 书籍完结状态规则  | String | 否    | status     |    |
+
+### 2、源规则中特定字段参数的说明
 
