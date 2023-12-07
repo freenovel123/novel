@@ -49,7 +49,7 @@
 | encode    | 编码方式   | String | 是    | utf-8                                                | 取值范围`utf-8,gbk`，默认认为utf-8                     |
 | list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                 | 规则代码                                          |
 | name      | 章节名称规则 | String | 是    | chapterName                                          | 这里的取值方式是获取list中的Dom或者JSON                     |
-| url       | 章节地址规则 | String | 是    | <http://www.a.com/?bid={{bookId}}&cid={{chapterId>}} | 这里的取值方式是获取list中的Dom或者JSON                     |
+| url       | 章节地址规则 | String | 是    | http://www.a.com/?bid=\{\{bookId\}\}&cid=\{\{chapterId>\}\} | 这里的取值方式是获取list中的Dom或者JSON                     |
 | ruleExtra | 追加的规则  | JSON   | 否    | `{...}`                                              | 具体查看1.4追加规则说明                                 |
 
 ### 1.3、正文规则说明
@@ -117,19 +117,19 @@
 
 `@js: html = html.replace(/|<\/dd>|[\s\S]*?<\/dt>/g, ''); html = '<div class="list">'.concat(html).concat(''); return html;`
 
-以上就是一个完整的`response`示例写法，方法的最后必须将`html`参数`return`，response中包含2个参数，一个是html,还有一个为config对象，也就是说在js中也可以使用config.url获取对应的信息，但是不能修改
+以上就是一个完整的`response`示例写法，方法的最后必须将`html`参数`return`
 
-这里有一个特定的字符串`html`参数，这个参数主要是请求页面以后请求返回了什么，这个`html`就是什么，没有做任何处理的信息。
+这里有两个特定的参数`html`和`config`，`html`参数代表了没任何处理的响应信息，`config`参数可以参考`2、源规则中特定字段参数的说明`。
 
 
 
-2.3、在规则中使用{{}}和\${}的方式进行替换
+2.3、在规则中使用\{\{\}\}和\${}的方式进行替换
 
-> {{xxx}}代表xxx是一个xpath或者jsonpath的规则
+> \{\{xxx\}\}代表xxx是一个xpath或者jsonpath的规则
 >
 > \${xxx}代表xxx是一个常用的参数，参数请参考 2.源规则中特定字段参数的说明
 
-比如规则为 `${bookUrl}/b/{{.//@href}}` ，`${bookUrl}`会替换为书本的详情地址，`{{.//@href}}`会根据xpath获取对应信息，最后会得到一个完整的链接比如 http\://www\.a.com/111/b/a.html
+比如规则为 `${bookUrl}/b/\{\{.//@href\}\}` ，`${bookUrl}`会替换为书本的详情地址，`\{\{.//@href\}\}`会根据xpath获取对应信息，最后会得到一个完整的链接比如 http\://www\.a.com/111/b/a.html
 
 
 
