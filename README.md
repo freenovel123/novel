@@ -117,7 +117,7 @@
 
 `@js: html = html.replace(/|<\/dd>|[\s\S]*?<\/dt>/g, ''); html = '<div class="list">'.concat(html).concat(''); return html;`
 
-以上就是一个完整的`response`示例写法，方法的最后必须将`html`参数`return`
+以上就是一个完整的`response`示例写法，方法的最后必须将`html`参数`return`，response中包含2个参数，一个是html,还有一个为config对象，也就是说在js中也可以使用config.url获取对应的信息，但是不能修改
 
 这里有一个特定的字符串`html`参数，这个参数主要是请求页面以后请求返回了什么，这个`html`就是什么，没有做任何处理的信息。
 
