@@ -125,7 +125,7 @@
             "response": "@js: html = html.replace(/<dd>|<\\/dd>|<dt>[\\s\\S]*?<\\/dt>/g, ''); html = '<div class=\"list\">'.concat(html).concat('</div>'); return html;",
             "list": "//*[@class='list']/a",
             "name": ".//text()",
-            "url": "${chapterUrl}{{.//@href}}",
+            "url": "${bookUrl}{{.//@href}}",
             "encode": "utf-8",
             "ruleExtra": {}
         },
