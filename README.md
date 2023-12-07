@@ -49,7 +49,7 @@
 | encode    | 编码方式   | String | 是    | utf-8                                                | 取值范围`utf-8,gbk`，默认认为utf-8                     |
 | list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                 | 规则代码                                          |
 | name      | 章节名称规则 | String | 是    | chapterName                                          | 这里的取值方式是获取list中的Dom或者JSON                     |
-| url       | 章节地址规则 | String | 是    | http://www.a.com/?bid=\{\{bookId\}\}&cid=\{\{chapterId>\}\} | 这里的取值方式是获取list中的Dom或者JSON                     |
+| url       | 章节地址规则 | String | 是    | http://www.a.com/?bid=\{{bookId\}}&cid=\{{chapterId>\}} | 这里的取值方式是获取list中的Dom或者JSON                     |
 | ruleExtra | 追加的规则  | JSON   | 否    | `{...}`                                              | 具体查看1.4追加规则说明                                 |
 
 ### 1.3、正文规则说明
@@ -129,7 +129,7 @@
 >
 > \${xxx}代表xxx是一个常用的参数，参数请参考 2.源规则中特定字段参数的说明
 
-比如规则为 `${bookUrl}/b/\{\{.//@href\}\}` ，`${bookUrl}`会替换为书本的详情地址，`\{\{.//@href\}\}`会根据xpath获取对应信息，最后会得到一个完整的链接比如 http\://www\.a.com/111/b/a.html
+比如规则为 `${bookUrl}/b/\{{.//@href\}}` ，`${bookUrl}`会替换为书本的详情地址，`\{{.//@href\}}`会根据xpath获取对应信息，最后会得到一个完整的链接比如 http\://www\.a.com/111/b/a.html
 
 
 
