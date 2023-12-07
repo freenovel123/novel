@@ -24,28 +24,16 @@
 
 ### 1.1、搜索规则说明
 
-| 参数                                  | 名称     | 参数类型   | 是否必填 | 示例值                               | 描述                                                              |
-| :---------------------------------- | :----- | :----- | :--- | :-------------------------------- | :-------------------------------------------------------------- |
-| engine> 取值范围
->
-> xpath
->
-> jsonpath | 解析引擎   | String | 是    | xpath                             | 解析的引擎，现在支持的有xpath和jsonpath，默认为xpath解析                           |
-| url                                 | 搜索地址   | String | 是    | <https://www.a.com/search/>       | 站点的搜索地址                                                         |
-| method> 取值范围
->
-> GET
->
-> POST       | 请求方式   | String | 是    | GET                               | 请求方式                                                            |
-| params                              | 请求参数   | JSON   | 是    | `{"name":"{keyword}","type":"0"}` | 参数中的{keyword}是搜索中的关键字，比如搜索”三国演义“，那么在实际请求中"{keyword}"会被替换成"三国演义" |
-| encode> 取值范围
->
-> gbk
->
-> utf-8      | 编码方式   | String | 是    | utf-8                             | 默认为utf-8                                                        |
-| bookList                            | 搜索列表规则 | String | 是    | //\*\[@class\='list']             | 规则代码                                                            |
-| bookName                            | 书籍名称规则 | String | 是    | .//a/text()                       | 这里的取值方式是获取bookList中的Dom或者JSON                                   |
-| bookUrl                             | 书籍地址规则 | String | 是    | .//a/@href                        | 同上                                                              |
-| bookAuthor                          | 书籍作者规则 | String | 否    | .//p\[@\='author']/text()         | 同上                                                              |
-| ruleExtra                           | 追加的规则  | JSON   | 否    | `{...}`                           | 具体查看1.4追加规则说明                                                   |
+| 参数         | 名称     | 参数类型   | 是否必填 | 取值范围           | 示例值                               | 描述                                                              |
+| :--------- | :----- | :----- | :--- | :------------- | :-------------------------------- | :-------------------------------------------------------------- |
+| engine     | 解析引擎   | String | 是    | xpath,jsonpath | xpath                             | 解析的引擎，现在支持的有xpath和jsonpath，默认为xpath解析                           |
+| url        | 搜索地址   | String | 是    |                | <https://www.a.com/search/>       | 站点的搜索地址                                                         |
+| method     | 请求方式   | String | 是    | GET,POST       | GET                               | 请求方式                                                            |
+| params     | 请求参数   | JSON   | 是    |                | `{"name":"{keyword}","type":"0"}` | 参数中的{keyword}是搜索中的关键字，比如搜索”三国演义“，那么在实际请求中"{keyword}"会被替换成"三国演义" |
+| encode     | 编码方式   | String | 是    | utf-8,gbk      | utf-8                             | 默认为utf-8                                                        |
+| bookList   | 搜索列表规则 | String | 是    |                | //\*\[@class\='list']             | 规则代码                                                            |
+| bookName   | 书籍名称规则 | String | 是    |                | .//a/text()                       | 这里的取值方式是获取bookList中的Dom或者JSON                                   |
+| bookUrl    | 书籍地址规则 | String | 是    |                | .//a/@href                        | 同上                                                              |
+| bookAuthor | 书籍作者规则 | String | 否    |                | .//p\[@\='author']/text()         | 同上                                                              |
+| ruleExtra  | 追加的规则  | JSON   | 否    |                | `{...}`                           | 具体查看1.4追加规则说明                                                   |
 
