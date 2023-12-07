@@ -45,7 +45,7 @@
         }
     },
     {
-        "version": 2,
+        "version": 1,
         "siteName": "笔趣阁Sypvm",
         "baseUrl": "https://www.sypvm.com/",
         "author": "steve",
@@ -83,7 +83,7 @@
         },
         "ruleContent": {
             "engine": "xpath",
-            "lines": "//*[@id='htmlContent']",
+            "lines": "//*[@id='htmlContent']/p/text()",
             "encode": "utf-8",
             "cleaner": ""
         }
