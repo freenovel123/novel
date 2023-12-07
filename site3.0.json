@@ -1,0 +1,500 @@
+[
+    {
+        "version": 1,
+        "siteName": "寒武纪",
+        "baseUrl": "https://www.hanwujinian.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "jsonpath",
+            "url": "https://api.hanwujinian.net/api.php/api/search_app/searchResult",
+            "method": "POST",
+            "params": {
+                "search":"{keyword}",
+                "type":"0"
+            },
+            "encode": "utf-8",
+            "bookList": "$..book[*]",
+            "bookName": "bookname",
+            "bookUrl": "https://wap.hanwujinian.com/api.php/api/book_app/chapterListWithUserStatus?bookId={{bookid}}",
+            "bookAuthor": "author",
+            "ruleExtra": {
+                "imageUrl": "pic",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": "",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "jsonpath",
+            "list": "$..chapterlist[*]",
+            "name": "chapterName",
+            "url": "https://www.hanwujinian.com/riku/minibook/read.php?aid={{bookId}}&cid={{chapterId}}&uid=3007628&token=d990d45f1cf17b468cc165da9762db4c",
+            "encode": "utf-8"
+        },
+        "ruleContent": {
+            "engine": "jsonpath",
+            "lines": "$.data.content",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 2,
+        "siteName": "笔趣阁Sypvm",
+        "baseUrl": "https://www.sypvm.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "jsonpath",
+            "url": "https://www.sypvm.com/api/search",
+            "method": "GET",
+            "params": {
+                "q": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "$..search[*]",
+            "bookName": "book_name",
+            "bookUrl": "book_list_url",
+            "bookAuthor": "author",
+            "ruleExtra": {
+                "imageUrl": "cover",
+                "lastUpdateTime": "uptime",
+                "lastChapterName": "latest_chapter_name",
+                "introduce": "intro",
+                "classify": "cate_name",
+                "status": "status_str"
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//*[@id='list']/dl/dd/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "encode": "utf-8"
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@id='htmlContent']",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    },
+    
+    {
+        "version": 1,
+        "siteName": "平板电子书网",
+        "baseUrl": "https://www.pbtxt8.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "https://www.pbtxt8.com/search/",
+            "method": "GET",
+            "params": {
+                "keyword": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@class='item']",
+            "bookName": ".//dl/dt/a/text()",
+            "bookUrl": ".//dl/dt/a/@href",
+            "bookAuthor": ".//*[@class='btm']/a/text()",
+            "ruleExtra": {
+                "imageUrl": "div[@class='image']/a/img/@data-original",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": ".//dl/dd/text()",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "request": "@js: config['url'] = config.url.concat('more'); config['header'] = {'X-Requested-With':'XMLHttpRequest'}; return config;",
+            "response": "@js: html = html.replace(/<dd>|<\\/dd>|<dt>[\\s\\S]*?<\\/dt>/g, ''); html = '<div class=\"list\">'.concat(html).concat('</div>'); return html;",
+            "list": "//*[@class='list']/a",
+            "name": ".//text()",
+            "url": "${chapterUrl}{{.//@href}}",
+            "encode": "utf-8",
+            "ruleExtra": {}
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "request": "@js: config['url'] = config.url.replace('.html', '').concat('_${i}.html'); config['page'] = 10; config['pageIndex'] = false; return config;",
+            "lines": "//*[@id='chaptercontent']/text()|//*[@id='chaptercontent']/p/text()",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 5,
+        "siteName": "闪文书库",
+        "baseUrl": "https://www.shanwen.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "https://www.shanwen.com/gdsuisfguigsdugiusiuesu.php",
+            "method": "GET",
+            "params": {
+                "ie": "gbk",
+                "q": "{keyword}"
+            },
+            "encode": "gbk",
+            "bookList": "//*[@class='bookbox']",
+            "bookName": ".//div[@class='bookinfo']/h4/a/text()",
+            "bookUrl": ".//div[@class='bookinfo']/h4/a/@href",
+            "bookAuthor": ".//div[@class='bookinfo']/div[@class='author']/text()",
+            "ruleExtra": {
+                "imageUrl": ".//*[@class='bookimg']/a/img/@src",
+                "lastUpdateTime": "",
+                "lastChapterName": ".//div[@class='bookinfo']/div[@class='update']/a/text()",
+                "introduce": ".//div[@class='bookinfo']/p/text()",
+                "classify": ".//div[@class='bookinfo']/div[@class='cat']/text()",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//*[@class='listmain']/dl/dd/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "encode": "gbk",
+            "ruleExtra": {
+                "lastUpdateTime": "//*[@id='info']/p[6]/text()",
+                "status": "//*[@id='info']/p[2]/text()"
+            }
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@id='content']/text()",
+            "encode": "gbk",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 2,
+        "siteName": "六月中文网",
+        "baseUrl": "http://www.dushuxs.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "tools": [],
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "http://www.dushuxs.com/iofghjbofgihfogidh.php",
+            "method": "GET",
+            "params": {
+                "q": "{keyword}"
+            },
+            "encode": "gbk",
+            "bookList": "//*[@class='bookbox']",
+            "bookName": ".//div[@class='bookinfo']/h4/a/text()",
+            "bookUrl": ".//div[@class='bookinfo']/h4/a/@href",
+            "bookAuthor": ".//div[@class='bookinfo']/div[@class='author']/text()",
+            "ruleExtra": {
+                "imageUrl": ".//div[@class='bookimg']/a/img/@src",
+                "lastUpdateTime": "",
+                "lastChapterName": ".//div[@class='bookinfo']/div[@class='update']/a/text()",
+                "introduce": ".//div[@class='bookinfo']/p/text()",
+                "classify": ".//div[@class='bookinfo']/div[@class='cat']/text()",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//*[@class='listmain']/dl/dd/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "encode": "gbk",
+            "ruleExtra": {
+                "lastUpdateTime": "//*[@id='info']/p[6]/text()",
+                "status": "//*[@id='info']/p[2]/text()"
+            }
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@id='content']/text()",
+            "encode": "gbk",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 2,
+        "siteName": "69书吧",
+        "baseUrl": "https://www.69shuba.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "tools": ["vpn"],
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "request": "",
+            "url": "https://www.69shuba.com/modules/article/search.php",
+            "method": "POST",
+            "params": {
+                "searchkey": "{keyword}",
+                "searchtype": "all"
+            },
+            "encode": "gbk",
+            "bookList": "//*[@class='newbox']/ul/li",
+            "bookName": ".//div[@class='newnav']/h3/a",
+            "bookUrl": ".//div[@class='newnav']/h3/a[1]/@href",
+            "bookAuthor": ".//div[@class='labelbox']/label[1]/text()",
+            "ruleExtra": {
+                "imageUrl": ".//a/img/@data-src",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": ".//ol[@class='ellipsis_2']/text()",
+                "classify": ".//div[@class='labelbox']/label[2]/text()",
+                "status": ".//div[@class='labelbox']/label[3]/text()"
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "request": "@js: config['url'] = config.url.replace('.htm', '/'); return config;",
+            "list": "//*[@id='catalog']/ul/li/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "encode": "gbk"
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "request": "",
+            "response": "",
+            "lines": "//*[@class='txtnav']/text()",
+            "encode": "gbk",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 1,
+        "siteName": "香书小说",
+        "baseUrl": "https://www.ibiquges.org/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "https://www.ibiquges.org/modules/article/waps.php",
+            "method": "GET",
+            "params": {
+                "searchkey": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@class='grid']/tbody/tr[position()>1]",
+            "bookName": ".//td[@class='even'][1]/a/text()",
+            "bookUrl": ".//td[@class='even'][1]/a/@href",
+            "bookAuthor": ".//td[@class='even'][2]/text()",
+            "ruleExtra": {
+                "imageUrl": "",
+                "lastUpdateTime": ".//td[@class='odd'][2]/text()",
+                "lastChapterName": ".//td[@class='odd'][1]/a/text()",
+                "introduce": "",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//*[@id='list']/dl/dd",
+            "name": ".//a/text()",
+            "url": ".//a/@href",
+            "encode": "utf-8",
+            "ruleExtra": {
+                "imageUrl": "//*[@id='fmimg']/img/@src",
+                "bookSize": "",
+                "lastUpdateTime": "//*[@id='info']/p[3]/text()",
+                "lastChapterName": "",
+                "introduce": "//*[@id='intro']/p[2]/text()",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@id='content']/text()",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 1,
+        "siteName": "溜达小说",
+        "baseUrl": "http://www.liudatxt.net/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "http://www.liudatxt.net/search.php",
+            "method": "GET",
+            "params": {
+                "searchkey": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@id='sitembox']/dl",
+            "bookName": ".//dd/h3/a/text()",
+            "bookUrl": ".//dd/h3/a/@href",
+            "bookAuthor": ".//dd[2]/span[1]/text()",
+            "ruleExtra": {
+                "imageUrl": ".//dt/a/img/@src",
+                "lastUpdateTime": ".//dd[4]/span/text()",
+                "lastChapterName": ".//dd[4]/a/text()",
+                "introduce": "",
+                "classify": "",
+                "status": ".//dd[2]/span[2]/text()"
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//*[@id='readerlist']/ul/li/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "encode": "utf-8",
+            "ruleExtra": {
+                "imageUrl": "",
+                "bookSize": "",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": "",
+                "classify": "//*[@id='smallcons']/span[1]/text()",
+                "status": ""
+            }
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@id='content']/text()",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 1,
+        "siteName": "爱书包",
+        "baseUrl": "https://www.ishubao.org/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "https://www.ishubao.org/modules/article/search.php",
+            "method": "GET",
+            "params": {
+                "q": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@class='mains']//tr[position()>1]",
+            "bookName": ".//td/a/text()",
+            "bookUrl": ".//td/a/@href",
+            "bookAuthor": ".//td[3]/text()",
+            "ruleExtra": {
+                "imageUrl": "",
+                "lastUpdateTime": ".//td[5]/text()",
+                "lastChapterName": ".//td[2]/a/text()",
+                "introduce": "",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//div[@class='article']//ul/li",
+            "name": ".//a/text()",
+            "url": ".//a/@href",
+            "encode": "utf-8",
+            "ruleExtra": {
+                "imageUrl": "//div[@class='img']/img/@src",
+                "bookSize": "",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": "//div[@id='intro']/p/text()",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@id='book_text']/text()",
+            "encode": "utf-8",
+            "cleaner": "一秒记住【39小说网|】，精彩小说无弹窗免费阅读！"
+        }
+    },
+    {
+        "version": 1,
+        "siteName": "三优小说网",
+        "baseUrl": "https://www.3uxiaoshuo.com/",
+        "author": "steve",
+        "contact": "",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "engine": "xpath",
+            "url": "https://www.3uxiaoshuo.com/tag/",
+            "method": "GET",
+            "params": {
+                "key": "{keyword}"
+            },
+            "encode": "utf-8",
+            "bookList": "//*[@class='container']/div[@class='item']",
+            "bookName": ".//div/h3/a/text()",
+            "bookUrl": ".//div/h3/a/@href",
+            "bookAuthor": ".//div/p[2]/a/text()",
+            "ruleExtra": {
+                "imageUrl": ".//a/img/@src",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": "",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleChapter": {
+            "engine": "xpath",
+            "list": "//*[@id='list']/ul/li",
+            "name": ".//a/text()",
+            "url": ".//a/@href",
+            "encode": "utf-8",
+            "ruleExtra": {
+                "imageUrl": "//*[@class='container']/div[@class='item']/a/img/@src",
+                "bookSize": "",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": "//*[@class='container']/div[@class='des bb']/p/text()",
+                "classify": "",
+                "status": ""
+            }
+        },
+        "ruleContent": {
+            "engine": "xpath",
+            "lines": "//*[@class='con']/p/text()",
+            "encode": "utf-8",
+            "cleaner": ""
+        }
+    }
+]

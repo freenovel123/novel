@@ -1,6 +1,50 @@
 [
     {
         "version": 1,
+        "siteName": "69书吧",
+        "baseUrl": "https://www.69shuba.com/",
+        "author": "steve",
+        "contact": "",
+        "engine": "xpath",
+        "enable": true,
+        "header": {},
+        "cookies": {},
+        "ruleSearch": {
+            "url": "https://www.69shuba.com/modules/article/search.php",
+            "method": "POST",
+            "params": {
+                "searchkey": "{keyword}",
+                "searchtype": "all"
+            },
+            "encode": "gbk",
+            "bookList": "//*[@class='newbox']/ul/li",
+            "bookName": ".//div[@class='newnav']/h3/a[2]",
+            "bookUrl": ".//div[@class='newnav']/h3/a[1]/@href",
+            "bookAuthor": ".//div[@class='labelbox']/label[1]/text()",
+            "ruleExtra": {
+                "imageUrl": ".//a/img/@src",
+                "lastUpdateTime": "",
+                "lastChapterName": "",
+                "introduce": ".//ol[@class='ellipsis_2']/text()",
+                "classify": ".//div[@class='labelbox']/label[2]/text()",
+                "status": ".//div[@class='labelbox']/label[3]/text()"
+            }
+        },
+        "ruleChapter": {
+            "list": "//*[@id='catalog']/ul/li/a",
+            "name": ".//text()",
+            "url": ".//@href",
+            "encode": "gbk",
+            "event": "let reslut = result.replace('.htm', '/'); return reslut;"
+        },
+        "ruleContent": {
+            "lines": "//*[@class='txtnav']/text()",
+            "encode": "gbk",
+            "cleaner": ""
+        }
+    },
+    {
+        "version": 1,
         "siteName": "香书小说",
         "baseUrl": "https://www.ibiquges.org/",
         "author": "steve",
@@ -150,57 +194,6 @@
             "lines": "//*[@id='book_text']/text()",
             "encode": "utf-8",
             "cleaner": "一秒记住【39小说网|】，精彩小说无弹窗免费阅读！"
-        }
-    },
-    {
-        "version": 1,
-        "siteName": "168小说网",
-        "baseUrl": "https://www.168myjob.com/",
-        "author": "steve",
-        "contact": "",
-        "engine": "xpath",
-        "enable": true,
-        "header": {},
-        "cookies": {},
-        "ruleSearch": {
-            "url": "https://www.168myjob.com/modules/article/search.php",
-            "method": "GET",
-            "params": {
-                "searchkey": "{keyword}"
-            },
-            "encode": "utf-8",
-            "bookList": "//*[@class='container']//*/ul/li",
-            "bookName": ".//span[2]/a/text()",
-            "bookUrl": ".//span[2]/a/@href",
-            "bookAuthor": ".//span[4]/text()",
-            "ruleExtra": {
-                "imageUrl": "",
-                "lastUpdateTime": ".//span[5]/text()",
-                "lastChapterName": ".//span[3]/a/text()",
-                "introduce": "",
-                "classify": "",
-                "status": ""
-            }
-        },
-        "ruleChapter": {
-            "list": "//*[@id='section-list']/li",
-            "name": ".//a/text()",
-            "url": ".//a/@href",
-            "encode": "utf-8",
-            "ruleExtra": {
-                "imageUrl": "//*[@class='imgbox']/img/@src",
-                "bookSize": "",
-                "lastUpdateTime": "",
-                "lastChapterName": "",
-                "introduce": "//*[@class='desc xs-hidden']/text()",
-                "classify": "",
-                "status": ""
-            }
-        },
-        "ruleContent": {
-            "lines": "//*[@class='content']/text()",
-            "encode": "utf-8",
-            "cleaner": ""
         }
     },
     {
