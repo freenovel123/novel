@@ -1,26 +1,31 @@
 # 极简阅读
 
-极简阅读是一款去中心化的阅读工具，支持苹果IOS和安卓。\
+**我们强烈建议用户仅在法律允许范围内和在相关权利人的明确授权下使用。 任何未经授权或超出法律许可范围的行为，由用户自行承担法律责任。**
+
+
+
+极简阅读是一款去中心化的工具，支持苹果IOS和安卓。\
 下载地址：<https://freenovel123.github.io/novel/html/index.html>
 
 ## 源制作文档
 
 ### 1、源参数说明
 
-| 参数          | 名称        | 参数类型        | 是否必填 | 示例值                                   | 描述              |
-| :---------- | :-------- | :---------- | :--- | :------------------------------------ | :-------------- |
-| version     | 版本号       | Number      | 是    | 1                                     | 版本更新标记          |
-| siteName    | 站点名称      | String      | 是    | 笔趣阁                                   | 站点的名称           |
-| baseUrl     | 站点根地址     | String      | 是    | <https://www.biqige.com/>             | url地址的末尾必须以/结尾  |
-| author      | 作者        | String      | 否    | 张三                                    | 作者的名称           |
-| contact     | 作者联系方式    | String      | 否    | <123@qq.com>                          | 作者联系方式          |
-| enable      | 启用状态      | Boolean     | 是    | true                                  | 是否使用该源          |
-| header      | 请求头       | JSON        | 否    | `{"Content-Type":"application/json"}` | 请求头             |
-| cookies     | 请求Cookies | JSON        | 否    | `{"token":"111222333"}`               | 请求的Cookies      |
-| remarks     | 备注信息      | String      | 否    | 这是一个很好的源                              |                 |
-| ruleSearch  | 搜索规则      | RuleSearch  | 是    | `{...}`                               | 具体查看1.1搜索规则说明   |
-| ruleChapter | 章节列表规则    | RuleChapter | 是    | `{...}`                               | 具体查看1.2章节列表规则说明 |
-| ruleContent | 正文规则      | RuleContent | 是    | `{...}`                               | 具体查看1.3正文规则说明   |
+| 参数          | 名称        | 参数类型        | 是否必填 | 示例值                                   | 描述                    |
+| :---------- | :-------- | :---------- | :--- | :------------------------------------ | :-------------------- |
+| version     | 版本号       | Number      | 是    | 1                                     | 版本更新标记                |
+| siteName    | 站点名称      | String      | 是    | 笔趣阁                                   | 站点的名称                 |
+| baseUrl     | 站点根地址     | String      | 是    | <https://www.biqige.com/>             | url地址的末尾必须以/结尾        |
+| author      | 作者        | String      | 否    | 张三                                    | 作者的名称                 |
+| contact     | 作者联系方式    | String      | 否    | <123@qq.com>                          | 作者联系方式                |
+| enable      | 启用状态      | Boolean     | 是    | true                                  | 是否使用该源                |
+| tools       | 支持的工具     | Array       | 否    | \["vpn","more"]                       | 给源标记必须要使用的工具取值范围`vpn` |
+| header      | 请求头       | JSON        | 否    | `{"Content-Type":"application/json"}` | 请求头                   |
+| cookies     | 请求Cookies | JSON        | 否    | `{"token":"111222333"}`               | 请求的Cookies            |
+| remarks     | 备注信息      | String      | 否    | 这是一个很好的源                              |                       |
+| ruleSearch  | 搜索规则      | RuleSearch  | 是    | `{...}`                               | 具体查看1.1搜索规则说明         |
+| ruleChapter | 章节列表规则    | RuleChapter | 是    | `{...}`                               | 具体查看1.2章节列表规则说明       |
+| ruleContent | 正文规则      | RuleContent | 是    | `{...}`                               | 具体查看1.3正文规则说明         |
 
 ### 1.1、搜索规则说明
 
@@ -41,27 +46,28 @@
 
 ### 1.2、章节列表规则说明
 
-| 参数        | 名称     | 参数类型   | 是否必填 | 示例值                                                  | 描述                                            |
-| :-------- | :----- | :----- | :--- | :--------------------------------------------------- | :-------------------------------------------- |
-| engine    | 解析引擎   | String | 是    | jsonpath                                             | 取值范围`xpath,jsonpath`                          |
-| request   | 请求信息   | String | 否    | @js: return config;                                  | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。具体可以查看2.1.2 |
-| response  | 响应处理   | String | 否    | @js: return html;                                    | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2    |
-| encode    | 编码方式   | String | 是    | utf-8                                                | 取值范围`utf-8,gbk`，默认认为utf-8                     |
-| list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                 | 规则代码                                          |
-| name      | 章节名称规则 | String | 是    | chapterName                                          | 这里的取值方式是获取list中的Dom或者JSON                     |
-| url       | 章节地址规则 | String | 是    | http://www.a.com/?bid=\{{bookId\}}&cid=\{{chapterId>\}} | 这里的取值方式是获取list中的Dom或者JSON                     |
-| ruleExtra | 追加的规则  | JSON   | 否    | `{...}`                                              | 具体查看1.4追加规则说明                                 |
+| 参数        | 名称     | 参数类型   | 是否必填 | 示例值                                                                                                                            | 描述                                            |
+| :-------- | :----- | :----- | :--- | :----------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+| engine    | 解析引擎   | String | 是    | jsonpath                                                                                                                       | 取值范围`xpath,jsonpath`                          |
+| request   | 请求信息   | String | 否    | @js: return config;                                                                                                            | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。具体可以查看2.1.2 |
+| response  | 响应处理   | String | 否    | @js: return html;                                                                                                              | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2    |
+| encode    | 编码方式   | String | 是    | utf-8                                                                                                                          | 取值范围`utf-8,gbk`，默认认为utf-8                     |
+| list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                                                                                           | 规则代码                                          |
+| name      | 章节名称规则 | String | 是    | chapterName                                                                                                                    | 这里的取值方式是获取list中的Dom或者JSON                     |
+| url       | 章节地址规则 | String | 是    | [http://www.a.com/?bid\=\\{{bookId\\}}\&cid\=\\{{chapterId>\\}}](http://www.a.com/?bid=\\{{bookId\\}}\&cid=\\{{chapterId>\\}}) | 这里的取值方式是获取list中的Dom或者JSON                     |
+| ruleExtra | 追加的规则  | JSON   | 否    | `{...}`                                                                                                                        | 具体查看1.4追加规则说明                                 |
 
 ### 1.3、正文规则说明
 
-| 参数       | 名称   | 参数类型   | 是否必填 | 示例值                 | 描述                                             |
-| :------- | :--- | :----- | :--- | :------------------ | :--------------------------------------------- |
-| engine   | 解析引擎 | String | 是    | jsonpath            | 取值范围`xpath,jsonpath`                           |
-| request  | 请求信息 | String | 否    | @js: return config; | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。。具体可以查看2.1.3 |
-| response | 响应处理 | String | 否    | @js: return html;   | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2     |
-| encode   | 编码方式 | String | 是    | utf-8               | 取值范围`utf-8,gbk`，默认认为utf-8                      |
-| lines    | 正文规则 | String | 是    | \$.data.content     | 规则代码                                           |
-| cleaner  | 净化规则 | String | 否    | 你好\|张三\|李四          | 净化文章中一些广告内容，多个使用"\|"分割                         |
+| 参数                               | 名称      | 参数类型   | 是否必填 | 示例值                 | 描述                                              |
+| :------------------------------- | :------ | :----- | :--- | :------------------ | :---------------------------------------------- |
+| engine                           | 解析引擎    | String | 是    | jsonpath            | 取值范围`xpath,jsonpath`                            |
+| request                          | 请求信息    | String | 否    | @js: return config; | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。。具体可以查看2.1.3  |
+| response                         | 响应处理    | String | 否    | @js: return html;   | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2      |
+| page`Android:v2.0以上``Ios:v2.1以上` | 正文总页数规则 | String | 否    | \$.data.page        | 如果一篇文章被分割成10页，那么使用这个参数配合pageStart可以将恢复成一篇完整的，文章 |
+| encode                           | 编码方式    | String | 是    | utf-8               | 取值范围`utf-8,gbk`，默认认为utf-8                       |
+| lines                            | 正文规则    | String | 是    | \$.data.content     | 规则代码                                            |
+| cleaner                          | 净化规则    | String | 否    | 你好\|张三\|李四          | 净化文章中一些广告内容，多个使用"\|"分割                          |
 
 ### 1.4、追加规则说明
 
@@ -88,30 +94,31 @@
 
 2.1.1 搜索规则config的参数说明：
 
-| 参数名     | 获取方式           | 示例值                           | 描述        |
-| :------ | :------------- | :---------------------------- | :-------- |
-| host    | config.host    | <http://www.a.com/>           | 站点地址      |
-| url     | config.url     | <http://www.a.com/search/>    | 搜索地址      |
-| header  | config.header  | {"a":"b"}                     | 请求头       |
-| cookies | config.cookies | {"a":"b"}                     | 请求cookies |
-| params  | config.params  | {"keyword":"搜索内容","type":"0"} | 请求参数      |
-| keyword | config.keyword | 搜索内容                          | 请求的关键字    |
+| 参数名     | 获取方式           | 示例值                           | 描述                    |
+| :------ | :------------- | :---------------------------- | :-------------------- |
+| host    | config.host    | <http://www.a.com/>           | 站点地址                  |
+| url     | config.url     | <http://www.a.com/search/>    | 请求地址，搜索地址/章节列表地址/正文地址 |
+| header  | config.header  | {"a":"b"}                     | 请求头                   |
+| cookies | config.cookies | {"a":"b"}                     | 请求cookies             |
+| params  | config.params  | {"keyword":"搜索内容","type":"0"} | 请求参数                  |
+| keyword | config.keyword | 搜索内容                          | 请求的关键字                |
 
 2.1.2 章节列表规则config的参数说明：
 
-| 参数名                     | 获取方式            | 示例值                       | 描述        |
-| :---------------------- | :-------------- | :------------------------ | :-------- |
-| host,url,header,cookies |                 |                           | 具体查看2.1.1 |
-| bookName                | config.bookName | 三国演义                      | 书籍名称      |
-| bookUrl                 | config.bookUrl  | <http://www.a.com/1.html> | 书籍章节列表地址  |
+| 参数名                     | 获取方式            | 示例值                       | 描述                                             |
+| :---------------------- | :-------------- | :------------------------ | :--------------------------------------------- |
+| host,url,header,cookies |                 |                           | 具体查看2.1.1                                      |
+| bookName                | config.bookName | 三国演义                      | 书籍名称                                           |
+| bookUrl                 | config.bookUrl  | <http://www.a.com/1.html> | 书籍章节列表初始地址，主要用途是在JS和\${bookUrl}的用法，不支持修改，不参与请求 |
 
 2.1.3 正文规则config的参数说明：
 
-| 参数名                     | 获取方式               | 示例值                         | 描述        |
-| :---------------------- | :----------------- | :-------------------------- | :-------- |
-| host,url,header,cookies |                    |                             | 具体查看2.1.1 |
-| chapterName             | config.chapterName | 第一章                         | 章节名称      |
-| chapterUrl              | config.chapterUrl  | <http://www.a.com/1/1/html> | 章节内容地址    |
+| 参数名                     | 获取方式               | 示例值                         | 描述                                              |
+| :---------------------- | :----------------- | :-------------------------- | :---------------------------------------------- |
+| host,url,header,cookies |                    |                             | 具体查看2.1.1                                       |
+| pageStart               | config.pageStart   | 2                           | 页面规则起始数，配合page参数可将多页数据整合为一个完整的数据                |
+| chapterName             | config.chapterName | 第一章                         | 章节名称                                            |
+| chapterUrl              | config.chapterUrl  | <http://www.a.com/1/1/html> | 章节内容初始地址，主要用途是在JS和\${chapterUrl}的用法，不支持修改，不参与请求 |
 
 2.2、response，这个参数暂时只支持`@js:`的写法，也就说这个参数暂时是一个写js方法的参数。示例：
 
@@ -121,16 +128,37 @@
 
 这里有两个特定的参数`html`和`config`，`html`参数代表了没任何处理的响应信息，`config`参数可以参考`2、源规则中特定字段参数的说明`。
 
+2.3、在规则中使用{{}}和\${}的方式进行替换
 
-
-2.3、在规则中使用\{\{\}\}和\${}的方式进行替换
-
-> \{\{xxx\}\}代表xxx是一个xpath或者jsonpath的规则
+> {{xxx}}代表xxx是一个xpath或者jsonpath的规则
 >
 > \${xxx}代表xxx是一个常用的参数，参数请参考 2.源规则中特定字段参数的说明
 
-比如规则为 `${bookUrl}/b/\{{.//@href\}}` ，`${bookUrl}`会替换为书本的详情地址，`\{{.//@href\}}`会根据xpath获取对应信息，最后会得到一个完整的链接比如 http\://www\.a.com/111/b/a.html
+比如规则为 `${bookUrl}/b/\{{.//@href\}}` ，`${bookUrl}`会替换为书本的详情地址，`\{{.//@href\}}`会根据xpath获取对应信息，最后会得到一个完整的链接比如 <http://www.a.com/111/b/a.html>
 
+2.4、在规则中使用\<js>\</js>方法 （IOS`2.0`以上版本，安卓`2.0`以上版本支持）
 
+> 比如一个xpath规则获取书本名称“三国演义”，然后想将三国演义这个名称修改为“三国演义真好看”，那么只需要将规则这么写：
+>
+> //\*\[@class\="bookName"]/text()\<js>value \= value.concat('真好看'); return value;\</js>
+>
+> 程序会先处理xpath部分，然后将处理完成获取到的数据给到value,然后可以在js中处理，这里也支持config参数。
 
-最后如果有不懂的同学可以加qq群：593371452
+2.5、在规则中使用\$put{}和\$get{}的方法（IOS`2.0`以上版本，安卓`2.1`以上版本支持）
+
+> \$put{} 将一个规则获取到的内容存入临时内存中
+>
+> \$get{} 获取\$put{}存入的数据
+>
+> 比如：\$put{//\*\[@class\='name']/text()#name}，这里的意思是将规则//\*\[@class\='name']/text()中获取到的值给到名称为name的参数，那么可以在其他规则中使用\$get{name}即可获取相应的值
+
+2.6、在JS中支持CryptoJS加密库，暂时只支持`AES`、`MD5`、`Base64`方法。（IOS`2.0`以上版本，安卓`2.0`以上版本支持）
+
+> MD5：CryptoJS.MD5(data).toString();
+>
+> AES：CryptoJS.AES.decrypt(data, password, {iv: iv, padding: CryptoJS.pad.Pkcs7 }).toString(CryptoJS.enc.Utf8)};
+>
+> Base64：CryptoJS.enc.Utf8.parse(data).toString(CryptoJS.enc.Base64);
+
+\
+最后如果有不懂的同学可以加qq群学习交流：593371452
