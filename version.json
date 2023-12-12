@@ -1,6 +1,6 @@
 {
-  "version": "2.0.2",
-  "url": "https://freenovel123.github.io/novel/noveljs_2.0.2_release.apk",
-  "log": "1、使用最新源3.0版本\r\n2、修复已知BUG",
+  "version": "2.0.3",
+  "url": "https://freenovel123.github.io/novel/noveljs_2.0.3_release.apk",
+  "log": "1、源支持<js></js>写法，支持CryptoJS。\r\n2、修复已知BUG",
   "constraint": false
 }
