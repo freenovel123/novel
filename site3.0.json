@@ -130,7 +130,7 @@
         },
         "ruleContent": {
             "engine": "xpath",
-            "request": "@js: config['url'] = config.url.replace('.html', '').concat('_${i}.html'); config['pageStart'] = 2; return config;",
+            "request": "@js: config['chapterUrl'] = config.chapterUrl.replace('.html', '').concat('_${i}.html'); config['pageStart'] = 2; return config;",
             "lines": "//*[@id='chaptercontent']/text()|//*[@id='chaptercontent']/p/text()",
             "page":"//*[@class='bookname']/text()<js>var v = value.match(/\\/(\\d+)）/); return v[1];</js>",
             "encode": "utf-8",

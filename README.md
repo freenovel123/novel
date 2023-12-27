@@ -37,7 +37,7 @@
 | url        | 搜索地址   | String | 是    | <https://www.a.com/search/>       | 站点的搜索地址                                                         |
 | method     | 请求方式   | String | 是    | GET                               | 取值范围`GET,POST`                                                  |
 | params     | 请求参数   | JSON   | 是    | `{"name":"{keyword}","type":"0"}` | 参数中的{keyword}是搜索中的关键字，比如搜索”三国演义“，那么在实际请求中"{keyword}"会被替换成"三国演义" |
-| encode     | 编码方式   | String | 是    | utf-8                             | 取值范围`utf-8,gbk`，默认认为utf-8                                       |
+| encode     | 编码方式   | String | 是    | utf-8                             | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                                       |
 | bookList   | 搜索列表规则 | String | 是    | //\*\[@class\='list']             | 规则代码                                                            |
 | bookName   | 书籍名称规则 | String | 是    | .//a/text()                       | 这里的取值方式是获取bookList中的Dom或者JSON                                   |
 | bookUrl    | 书籍地址规则 | String | 是    | .//a/@href                        | 同上                                                              |
@@ -51,7 +51,7 @@
 | engine    | 解析引擎   | String | 是    | jsonpath                                                                                                                       | 取值范围`xpath,jsonpath`                          |
 | request   | 请求信息   | String | 否    | @js: return config;                                                                                                            | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。具体可以查看2.1.2 |
 | response  | 响应处理   | String | 否    | @js: return html;                                                                                                              | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2    |
-| encode    | 编码方式   | String | 是    | utf-8                                                                                                                          | 取值范围`utf-8,gbk`，默认认为utf-8                     |
+| encode    | 编码方式   | String | 是    | utf-8                                                                                                                          | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                     |
 | list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                                                                                           | 规则代码                                          |
 | name      | 章节名称规则 | String | 是    | chapterName                                                                                                                    | 这里的取值方式是获取list中的Dom或者JSON                     |
 | url       | 章节地址规则 | String | 是    | [http://www.a.com/?bid\=\\{{bookId\\}}\&cid\=\\{{chapterId>\\}}](http://www.a.com/?bid=\\{{bookId\\}}\&cid=\\{{chapterId>\\}}) | 这里的取值方式是获取list中的Dom或者JSON                     |
@@ -65,7 +65,7 @@
 | request  | 请求信息                        | String | 否    | @js: return config; | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。。具体可以查看2.1.3  |
 | response | 响应处理                        | String | 否    | @js: return html;   | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2      |
 | page     | 正文总页数规则Android:v2.0Ios:v2.1 | String | 否    | \$.data.page        | 如果一篇文章被分割成10页，那么使用这个参数配合pageStart可以将恢复成一篇完整的，文章 |
-| encode   | 编码方式                        | String | 是    | utf-8               | 取值范围`utf-8,gbk`，默认认为utf-8                       |
+| encode   | 编码方式                        | String | 是    | utf-8               | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                       |
 | lines    | 正文规则                        | String | 是    | \$.data.content     | 规则代码                                            |
 | cleaner  | 净化规则                        | String | 否    | 你好\|张三\|李四          | 净化文章中一些广告内容，多个使用"\|"分割                          |
 
@@ -144,13 +144,13 @@
 >
 > 程序会先处理xpath部分，然后将处理完成获取到的数据给到value,然后可以在js中处理，这里也支持config参数。
 
-2.5、在规则中使用\$put{}和\$get{}的方法（IOS`2.0`以上版本，安卓`2.1`以上版本支持）
+2.5、在规则中使用\@put{}和\@get{}的方法（IOS`2.0`以上版本，安卓`2.1`以上版本支持）
 
-> \$put{} 将一个规则获取到的内容存入临时内存中
+> \@put{} 将一个规则获取到的内容存入临时内存中
 >
-> \$get{} 获取\$put{}存入的数据
+> \@get{} 获取\@put{}存入的数据
 >
-> 比如：\$put{//\*\[@class\='name']/text()#name}，这里的意思是将规则//\*\[@class\='name']/text()中获取到的值给到名称为name的参数，那么可以在其他规则中使用\$get{name}即可获取相应的值
+> 比如：\@put{//\*\[@class\='name']/text()#name}，这里的意思是将规则//\*\[@class\='name']/text()中获取到的值给到名称为name的参数，那么可以在其他规则中使用\@get{name}即可获取相应的值
 
 2.6、在JS中支持CryptoJS加密库，暂时只支持`AES`、`MD5`、`Base64`方法。（IOS`2.0`以上版本，安卓`2.0`以上版本支持）
 
