@@ -2,8 +2,6 @@
 
 **我们强烈建议用户仅在法律允许范围内和在相关权利人的明确授权下使用。 任何未经授权或超出法律许可范围的行为，由用户自行承担法律责任。**
 
-
-
 极简阅读是一款去中心化的工具，支持苹果IOS和安卓。\
 下载地址：<https://freenovel123.github.io/novel/html/index.html>
 
@@ -37,7 +35,7 @@
 | url        | 搜索地址   | String | 是    | <https://www.a.com/search/>       | 站点的搜索地址                                                         |
 | method     | 请求方式   | String | 是    | GET                               | 取值范围`GET,POST`                                                  |
 | params     | 请求参数   | JSON   | 是    | `{"name":"{keyword}","type":"0"}` | 参数中的{keyword}是搜索中的关键字，比如搜索”三国演义“，那么在实际请求中"{keyword}"会被替换成"三国演义" |
-| encode     | 编码方式   | String | 是    | utf-8                             | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                                       |
+| encode     | 编码方式   | String | 是    | utf-8                             | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                                |
 | bookList   | 搜索列表规则 | String | 是    | //\*\[@class\='list']             | 规则代码                                                            |
 | bookName   | 书籍名称规则 | String | 是    | .//a/text()                       | 这里的取值方式是获取bookList中的Dom或者JSON                                   |
 | bookUrl    | 书籍地址规则 | String | 是    | .//a/@href                        | 同上                                                              |
@@ -51,7 +49,7 @@
 | engine    | 解析引擎   | String | 是    | jsonpath                                                                                                                       | 取值范围`xpath,jsonpath`                          |
 | request   | 请求信息   | String | 否    | @js: return config;                                                                                                            | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。具体可以查看2.1.2 |
 | response  | 响应处理   | String | 否    | @js: return html;                                                                                                              | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2    |
-| encode    | 编码方式   | String | 是    | utf-8                                                                                                                          | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                     |
+| encode    | 编码方式   | String | 是    | utf-8                                                                                                                          | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8              |
 | list      | 章节列表规则 | String | 是    | \$..chapterlist\[\*]                                                                                                           | 规则代码                                          |
 | name      | 章节名称规则 | String | 是    | chapterName                                                                                                                    | 这里的取值方式是获取list中的Dom或者JSON                     |
 | url       | 章节地址规则 | String | 是    | [http://www.a.com/?bid\=\\{{bookId\\}}\&cid\=\\{{chapterId>\\}}](http://www.a.com/?bid=\\{{bookId\\}}\&cid=\\{{chapterId>\\}}) | 这里的取值方式是获取list中的Dom或者JSON                     |
@@ -59,15 +57,16 @@
 
 ### 1.3、正文规则说明
 
-| 参数       | 名称                          | 参数类型   | 是否必填 | 示例值                 | 描述                                              |
-| :------- | :-------------------------- | :----- | :--- | :------------------ | :---------------------------------------------- |
-| engine   | 解析引擎                        | String | 是    | jsonpath            | 取值范围`xpath,jsonpath`                            |
-| request  | 请求信息                        | String | 否    | @js: return config; | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。。具体可以查看2.1.3  |
-| response | 响应处理                        | String | 否    | @js: return html;   | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2      |
-| page     | 正文总页数规则Android:v2.0Ios:v2.1 | String | 否    | \$.data.page        | 如果一篇文章被分割成10页，那么使用这个参数配合pageStart可以将恢复成一篇完整的，文章 |
-| encode   | 编码方式                        | String | 是    | utf-8               | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                       |
-| lines    | 正文规则                        | String | 是    | \$.data.content     | 规则代码                                            |
-| cleaner  | 净化规则                        | String | 否    | 你好\|张三\|李四          | 净化文章中一些广告内容，多个使用"\|"分割                          |
+| 参数       | 名称                          | 参数类型   | 是否必填 | 示例值                            | 描述                                                                                       |
+| :------- | :-------------------------- | :----- | :--- | :----------------------------- | :--------------------------------------------------------------------------------------- |
+| engine   | 解析引擎                        | String | 是    | jsonpath                       | 取值范围`xpath,jsonpath`                                                                     |
+| request  | 请求信息                        | String | 否    | @js: return config;            | 在请求URL之前可以处理一些参数，比如添加请求头，替换请求url等。。具体可以查看2.1.3                                           |
+| response | 响应处理                        | String | 否    | @js: return html;              | 在请求完成以后，会将请求到的html返回到这里，可以根据需求处理。具体可以查看2.2                                               |
+| page     | 正文总页数规则Android:v2.0Ios:v2.1 | String | 否    | \$.data.page或者使用整数10           | 文章多页的情况下使用该规则进行获取下一页内容，那么使用这个参数必须配合pageStart和chapterUrl可以将恢复成一篇完整的文章，与next二选一，同时存在优先page |
+| next     | 下一页规则                       | String | 否    | //\*\[contains(.,"下一页")]/@href | 文章多页的情况下使用该规则进行获取下一页内容，因为是单线程操作，访问速度相对page多线程效率更慢，与page二选一，同时存在优先page                    |
+| encode   | 编码方式                        | String | 是    | utf-8                          | 取值范围`utf-8,gbk,gb2312`，默认认为utf-8                                                         |
+| lines    | 正文规则                        | String | 是    | \$.data.content                | 规则代码                                                                                     |
+| cleaner  | 净化规则                        | String | 否    | 你好\|张三\|李四                     | 净化文章中一些广告内容，多个使用"\|"分割                                                                   |
 
 ### 1.4、追加规则说明
 
@@ -113,12 +112,12 @@
 
 2.1.3 正文规则config的参数说明：
 
-| 参数名                     | 获取方式               | 示例值                         | 描述                                              |
-| :---------------------- | :----------------- | :-------------------------- | :---------------------------------------------- |
-| host,url,header,cookies |                    |                             | 具体查看2.1.1                                       |
-| pageStart               | config.pageStart   | 2                           | 页面规则起始数，配合page参数可将多页数据整合为一个完整的数据                |
-| chapterName             | config.chapterName | 第一章                         | 章节名称                                            |
-| chapterUrl              | config.chapterUrl  | <http://www.a.com/1/1/html> | 章节内容初始地址，主要用途是在JS和\${chapterUrl}的用法，不支持修改，不参与请求 |
+| 参数名                     | 获取方式               | 示例值                         | 描述                                                                 |
+| :---------------------- | :----------------- | :-------------------------- | :----------------------------------------------------------------- |
+| host,url,header,cookies |                    |                             | 具体查看2.1.1                                                          |
+| pageStart               | config.pageStart   | 2                           | 页面规则起始数，配合page参数可将多页数据整合为一个完整的数据                                   |
+| chapterName             | config.chapterName | 第一章                         | 章节名称                                                               |
+| chapterUrl              | config.chapterUrl  | <http://www.a.com/1/1/html> | 章节内容初始地址，主要用途是在JS和\${chapterUrl}的用法，在正文多页的情况配合page和pageStart参与规则处理 |
 
 2.2、response，这个参数暂时只支持`@js:`的写法，也就说这个参数暂时是一个写js方法的参数。示例：
 
@@ -144,13 +143,13 @@
 >
 > 程序会先处理xpath部分，然后将处理完成获取到的数据给到value,然后可以在js中处理，这里也支持config参数。
 
-2.5、在规则中使用\@put{}和\@get{}的方法（IOS`2.0`以上版本，安卓`2.1`以上版本支持）
+2.5、在规则中使用@put{}和@get{}的方法（IOS`2.1`以上版本，安卓`2.1`以上版本支持）
 
-> \@put{} 将一个规则获取到的内容存入临时内存中
+> @put{} 将一个规则获取到的内容存入临时内存中
 >
-> \@get{} 获取\@put{}存入的数据
+> @get{} 获取@put{}存入的数据
 >
-> 比如：\@put{//\*\[@class\='name']/text()#name}，这里的意思是将规则//\*\[@class\='name']/text()中获取到的值给到名称为name的参数，那么可以在其他规则中使用\@get{name}即可获取相应的值
+> 比如：@put{//\*\[@class\='name']/text()#name}，这里的意思是将规则//\*\[@class\='name']/text()中获取到的值给到名称为name的参数，那么可以在其他规则中使用@get{name}即可获取相应的值，也可以使用@get{\$.name}，因为@get{}中的内容是一个`Jsonpath`规则
 
 2.6、在JS中支持CryptoJS加密库，暂时只支持`AES`、`MD5`、`Base64`方法。（IOS`2.0`以上版本，安卓`2.0`以上版本支持）
 
@@ -159,6 +158,36 @@
 > AES：CryptoJS.AES.decrypt(data, password, {iv: iv, padding: CryptoJS.pad.Pkcs7 }).toString(CryptoJS.enc.Utf8)};
 >
 > Base64：CryptoJS.enc.Utf8.parse(data).toString(CryptoJS.enc.Base64);
+
+2.7、正文多页说明
+
+在某些源中正文会被切割成多个页面，极简提供了多个方案可以准确的将多个页面恢复成一篇完整的文章。
+
+示例一：使用request和page多线程请求方案
+
+`章节内容第一页url地址为：https://www.xxx.com/book/160/313848.html`
+
+`章节内容第二页url地址为：https://www.xxx.com/book/160/313848_2.html`
+
+在正文规则中可以按照以下方式来设置规则
+
+请求信息(request)：`@js: config['chapterUrl'] = config.chapterUrl.replace('.html', '').concat('_${i}.html'); config['pageStart'] = 2; return config;`
+
+页面数量(page)：`//*[@class='bookname']/text()var v = value.match(/\/(\d+)）/); return v[1];`
+
+页面数量这里是可以使用2个方案，方案一可为规则，方案二可以是整数，比如10，在第一页中能准确知道这个文章被分成几页的情况下，请使用规则。如果不能准确知道文章被分成多少页数，可以设置一个请求最大值。
+
+
+
+示例二：使用next方案
+
+该方案为单线程方案，也就是如果一个文章被分成了10页，那么极简会按照顺序请求页面，直到找不到下一页的内容。
+
+下一页规则(next)：`//*[contains(.,"下一页")]/@href`
+
+此方案对于规则的编写方面比较简单，但是没有示例一的请求效率高。极简在此方案中规定了最多请求50页，如果不满足的情况请选择方案一
+
+
 
 \
 最后如果有不懂的同学可以加qq群学习交流：593371452
