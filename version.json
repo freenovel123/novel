@@ -1,6 +1,6 @@
 {
-  "version": "2.0.5",
-  "url": "https://freenovel123.github.io/novel/noveljs_2.0.5_release.apk",
-  "log": "1、翻页新增无效果和滚动模式\r\n2、源支持前置请求规则方案\r\n3、修复已知BUG",
+  "version": "2.1.0",
+  "url": "https://freenovel123.github.io/novel/noveljs_2.1.0_release.apk",
+  "log": "1、源新增支持page，next方案\r\n2、修复已知BUG",
   "constraint": false
 }
