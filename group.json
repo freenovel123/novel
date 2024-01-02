@@ -1,0 +1,16 @@
+[
+	{
+		"name": "QQ一群",
+		"group": "593371452",
+		"groupCode": "T0Ss53Bc6jy7_skQBvnS5a9xPsk0cmKy",
+		"auth": "dHp9Ro1WHHZWQnyFXAhjKj86VEKYD0a4dlYNBn6YiQHadyqC0IBtNZBIlFClV5p8",
+		"url": "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=%@&authSig=%@&card_type=group&source=external&jump_from=webapi"
+	},
+	{
+		"name": "QQ二群",
+		"group": "215891761",
+		"groupCode": "T0Ss53Bc6jy7_skQBvnS5a9xPsk0cmKy",
+		"auth": "VfHKkXI7Q0Hha2yI6B9pD/UnY2Gw9eT0GMYrHsRSWZN5Lm+TTCBCkJWJRPwB+j6Q",
+		"url": "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=%@&authSig=%@&card_type=group&source=external&jump_from=webapi"
+	}
+]
