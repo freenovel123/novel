@@ -186,7 +186,7 @@
 
 请求信息(request)：`@js: config['chapterUrl'] = config.chapterUrl.replace('.html', '').concat('_${i}.html'); config['pageStart'] = 2; return config;`
 
-页面数量(page)：`//*[@class='bookname']/text()var v = value.match(/\/(\d+)）/); return v[1];`
+页面数量(page)：`//*[@class='bookname']/text()<js>var v = value.match(/\/(\d+)）/); return v[1];</js>`
 
 页面数量这里是可以使用2个方案，方案一可为规则，方案二可以是整数，比如10，在第一页中能准确知道这个文章被分成几页的情况下，请使用规则。如果不能准确知道文章被分成多少页数，可以设置一个请求最大值。
 
