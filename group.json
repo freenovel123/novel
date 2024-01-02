@@ -1,5 +1,6 @@
 [
 	{
+		"type": "qq",
 		"name": "QQ一群",
 		"group": "593371452",
 		"groupCode": "T0Ss53Bc6jy7_skQBvnS5a9xPsk0cmKy",
@@ -8,6 +9,7 @@
 		"android": "mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3D"
 	},
 	{
+		"type": "qq",
 		"name": "QQ二群",
 		"group": "699031987",
 		"groupCode": "JSIz5JwE80a1jeXawKNr8482E2E0SaMN",
@@ -16,11 +18,17 @@
 		"android": "mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3D"
 	},
 	{
+		"type": "qq",
 		"name": "QQ三群",
 		"group": "215891761",
 		"groupCode": "NEK_XV-8NigqaXHyKV2b6sfx1yu2u5BO",
 		"auth": "VfHKkXI7Q0Hha2yI6B9pD/UnY2Gw9eT0GMYrHsRSWZN5Lm+TTCBCkJWJRPwB+j6Q",
 		"ios": "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=%@&authSig=%@&card_type=group&source=external&jump_from=webapi",
 		"android": "mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3D"
+	},
+	{
+		"type": "telegram",
+		"name": "Telegram",
+		"url": "https://t.me/+CItdAmuDTW4wYzg1"
 	}
 ]
