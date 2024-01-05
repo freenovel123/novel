@@ -1,6 +1,6 @@
 {
-  "version": "2.1.0",
-  "url": "https://freenovel123.github.io/novel/noveljs_2.1.0_release.apk",
-  "log": "1、源新增支持page，next方案\r\n2、修复已知BUG",
+  "version": "2.1.1",
+  "url": "https://freenovel123.github.io/novel/noveljs_2.1.1_release.apk",
+  "log": "1、新增源可导出导入，移除二维码分享\r\n2、源可直接输入网址导入\r\n3、修复已知BUG",
   "constraint": false
 }
