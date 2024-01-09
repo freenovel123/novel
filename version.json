@@ -1,6 +1,6 @@
 {
-  "version": "2.1.2",
-  "url": "https://freenovel123.github.io/novel/noveljs_2.1.2_release.apk",
-  "log": "1、新增自定义字体。\r\n2、优化阅读界面。\r\n3、修复已知BUG。",
+  "version": "2.1.3",
+  "url": "https://freenovel123.github.io/novel/noveljs_2.1.3_release.apk",
+  "log": "1、新增自定义字体。\r\n2、优化阅读界面。\r\n3、修复导入源和字体问题。\r\n4、修复已知BUG。",
   "constraint": false
 }
